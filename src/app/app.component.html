@@ -1,35 +1,5 @@
 <div class="sw-container">
-  <header class="sw-header">
-    <a href="#">
-      <img
-        src="../assets/images/SWLogo.png"
-        alt="star wars logo"
-        class="sw-logo"
-      />
-    </a>
-    <nav class="sw-header-nav">
-      <a routerLink="main" class="sw-header-link">
-        <i class="fa-brands fa-mandalorian sw-header-icon"></i>
-        Characters
-      </a>
-      <a routerLink="films" class="sw-header-link">
-        <i class="fa-solid fa-film sw-header-icon"></i>
-        Films
-      </a>
-      <a routerLink="planets" class="sw-header-link">
-        <i class="fa-solid fa-globe sw-header-icon"></i>
-        Planets
-      </a>
-      <a routerLink="vehicles" class="sw-header-link">
-        <i class="fa-brands fa-galactic-republic sw-header-icon"></i>
-        Vehicles
-      </a>
-      <a routerLink="spaceships" class="sw-header-link">
-        <i class="fa-brands fa-galactic-senate sw-header-icon"></i>
-        Spaceships
-      </a>
-    </nav>
-  </header>
+  <app-header></app-header>
   <main>
     <router-outlet></router-outlet>
   </main>

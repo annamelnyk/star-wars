@@ -1,0 +1,53 @@
+<header class="header">
+  <a href="#">
+    <img
+      src="../assets/images/SWLogo.png"
+      alt="star wars logo"
+      class="header-logo"
+    />
+  </a>
+  <div class="header-nav-container">
+    <nav class="header-nav" [ngClass]="isExpanded ? 'expanded' : ''">
+      <div
+        class="header-nav-menu"
+        [ngClass]="isToggleClose ? 'close' : ''"
+        (click)="toggleMenu()"
+      >
+        <div
+          class="header-nav-toggle"
+          [ngClass]="isToggleClose ? 'close' : ''"
+        ></div>
+      </div>
+      <span [ngClass]="isLinkHidden ? 'hidden' : ''">
+        <a routerLink="main" class="header-link">
+          <i class="fa-brands fa-mandalorian header-link-icon"></i>
+          Characters
+        </a>
+      </span>
+      <span [ngClass]="isLinkHidden ? 'hidden' : ''">
+        <a routerLink="films" class="header-link">
+          <i class="fa-solid fa-film header-link-icon"></i>
+          Films
+        </a>
+      </span>
+      <span [ngClass]="isLinkHidden ? 'hidden' : ''">
+        <a routerLink="planets" class="header-link">
+          <i class="fa-solid fa-globe header-link-icon"></i>
+          Planets
+        </a>
+      </span>
+      <span [ngClass]="isLinkHidden ? 'hidden' : ''">
+        <a routerLink="vehicles" class="header-link">
+          <i class="fa-brands fa-galactic-republic header-link-icon"></i>
+          Vehicles
+        </a>
+      </span>
+      <span [ngClass]="isLinkHidden ? 'hidden' : ''">
+        <a routerLink="spaceships" class="header-link">
+          <i class="fa-brands fa-galactic-senate header-link-icon"></i>
+          Spaceships
+        </a>
+      </span>
+    </nav>
+  </div>
+</header>

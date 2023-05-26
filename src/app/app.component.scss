@@ -11,36 +11,4 @@
     backdrop-filter: sepia(90%);
     background-size: contain;
   }
-
-  &-logo {
-    width: 135px;
-  }
-
-  &-header {
-    padding: 0 2rem;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    color: $c-brown-light;
-
-    &-icon {
-      margin-right: 0.3rem;
-      margin-left: 2rem;
-      font-size: 2rem;
-      font-weight: 700;
-    }
-
-    &-link {
-      color: inherit;
-      font-size: 2rem;
-      font-weight: 700;
-      text-decoration: none;
-
-      &:hover,
-      &.active {
-        color: $c-red;
-        transition: color .5s ease;
-      }
-    }
-  }
 }
