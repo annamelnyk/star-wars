@@ -19,31 +19,51 @@
         ></div>
       </div>
       <span [ngClass]="isLinkHidden ? 'hidden' : ''">
-        <a routerLink="main" class="header-link">
+        <a
+          routerLinkActive="active"
+          [routerLink]="[navRoutes.CHARACTERS]"
+          class="header-link"
+        >
           <i class="fa-brands fa-mandalorian header-link-icon"></i>
           Characters
         </a>
       </span>
       <span [ngClass]="isLinkHidden ? 'hidden' : ''">
-        <a routerLink="films" class="header-link">
+        <a
+          routerLinkActive="active"
+          [routerLink]="[navRoutes.FILMS]"
+          class="header-link"
+        >
           <i class="fa-solid fa-film header-link-icon"></i>
           Films
         </a>
       </span>
       <span [ngClass]="isLinkHidden ? 'hidden' : ''">
-        <a routerLink="planets" class="header-link">
+        <a
+          routerLinkActive="active"
+          [routerLink]="[navRoutes.PLANETS]"
+          class="header-link"
+        >
           <i class="fa-solid fa-globe header-link-icon"></i>
           Planets
         </a>
       </span>
       <span [ngClass]="isLinkHidden ? 'hidden' : ''">
-        <a routerLink="vehicles" class="header-link">
+        <a
+          routerLinkActive="active"
+          [routerLink]="[navRoutes.VEHICLES]"
+          class="header-link"
+        >
           <i class="fa-brands fa-galactic-republic header-link-icon"></i>
           Vehicles
         </a>
       </span>
       <span [ngClass]="isLinkHidden ? 'hidden' : ''">
-        <a routerLink="spaceships" class="header-link">
+        <a
+          routerLinkActive="active"
+          [routerLink]="[navRoutes.SPACESHIPS]"
+          class="header-link"
+        >
           <i class="fa-brands fa-galactic-senate header-link-icon"></i>
           Spaceships
         </a>

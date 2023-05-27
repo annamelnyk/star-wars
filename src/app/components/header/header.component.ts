@@ -1,4 +1,7 @@
 import { Component } from '@angular/core';
+import { Router, Event, NavigationEnd} from '@angular/router';
+
+import { ROUTES } from 'src/app/data/constants';
 
 @Component({
   selector: 'app-header',
@@ -9,6 +12,18 @@ export class HeaderComponent {
   public isExpanded: boolean = false;
   public isLinkHidden: boolean = true;
   public isToggleClose: boolean = false;
+  public currentRoute: string = ROUTES.CHARACTERS;
+  public navRoutes = ROUTES; 
+
+  // define active route
+  constructor(private router: Router) {
+    this.router.events.subscribe((event: Event) => {
+
+        if (event instanceof NavigationEnd) {
+            this.currentRoute = event.urlAfterRedirects;
+        }
+    });
+}
 
   public toggleMenu(): void {
     this.isExpanded = !this.isExpanded;
