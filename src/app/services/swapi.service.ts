@@ -3,7 +3,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 
-import { ICharacter } from '../data/models/type';
+import { ICharacter } from '../data/models/character';
 
 @Injectable({
   providedIn: 'root',

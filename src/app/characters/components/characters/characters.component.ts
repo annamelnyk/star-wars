@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 
 import { SwapiService } from '../../../services/swapi.service';
-import { ICharacter } from 'src/app/data/models/type';
+import { ICharacter } from 'src/app/data/models/character';
 @Component({
   selector: 'app-characters',
   templateUrl: './characters.component.html',
