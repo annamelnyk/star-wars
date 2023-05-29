@@ -1,0 +1,7 @@
+@mixin box-shadow {
+  box-shadow: 0 8px 22px rgba(0, 0, 0, 0.15);
+} 
+
+@mixin transition($time) {
+  transition: all $time cubic-bezier(0.53, 0, 0.15, 1.3);
+}
