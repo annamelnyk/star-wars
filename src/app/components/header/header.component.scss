@@ -109,7 +109,7 @@ $toggle: calc(($size + $margin * 2) * 1.5);
 
     &.expanded {
       // toolbar width
-      width: calc($toggle * 11.4);
+      width: calc($toggle * 11.44);
     }
 
     &-container {

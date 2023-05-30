@@ -1,0 +1,24 @@
+@import "../../../styles";
+
+.sw-footer {
+  background: $c-red;
+  padding: 1.5rem;
+  position: fixed;
+  left: 0;
+  bottom: -7rem;
+  width: 100%;
+  text-align: center;
+  font-size: 1.5rem;
+
+  &-info {
+    color: $c-brown-light;
+    font-size: inherit;
+    font-weight: 500;
+  }
+
+  &-link {
+    color: $bg-yellow-1;
+    font-weight: 700;
+    font-size: inherit;
+  }
+}
