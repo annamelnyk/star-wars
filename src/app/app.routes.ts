@@ -2,7 +2,7 @@ import { Routes } from '@angular/router';
 
 export const APP_ROUTES: Routes = [
   {
-    path: 'main',
+    path: 'characters',
     loadChildren: () =>
       import('./characters/characters.module').then((m) => m.CharactersModule),
   },
@@ -26,6 +26,6 @@ export const APP_ROUTES: Routes = [
     loadChildren: () =>
       import('./spaceships/spaceships.module').then((m) => m.SpaceshipsModule),
   },
-  { path: '', redirectTo: 'main', pathMatch: 'full' },
-  { path: '**', redirectTo: 'main', pathMatch: 'full' },
+  { path: '', redirectTo: 'characters', pathMatch: 'full' },
+  { path: '**', redirectTo: 'characters', pathMatch: 'full' },
 ];

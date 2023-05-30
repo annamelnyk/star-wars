@@ -1,0 +1,9 @@
+@import "../../../../styles";
+
+.title {
+  color: $c-brown-light;
+  font-size: 3rem;
+  text-transform: uppercase;
+  font-weight: 700;
+  border-bottom: 6px groove $c-red;
+}

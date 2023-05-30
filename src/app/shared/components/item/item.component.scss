@@ -45,9 +45,19 @@ $border-radius: 5px;
   &-title,
   &-icon,
   &-read,
+  &-star,
   &-index {
     color: $bg-yellow-2;
     position: relative;
+    z-index: 1;
+  }
+
+  &-star {
+    position: absolute;
+    right: 1.5rem;
+    top: 1.5rem;
+    cursor: pointer;
+    font-size: 2rem;
     z-index: 1;
   }
 
@@ -73,10 +83,10 @@ $border-radius: 5px;
     .item-title,
     .item-icon,
     .item-read,
-    .item-index {
+    .item-index,
+    .item-star {
       @include transition(0.7s);
       color: $c-brown-light;
-      position: relative;
       z-index: 1;
     }
 

@@ -15,16 +15,6 @@ export class HeaderComponent {
   public currentRoute: string = ROUTES.CHARACTERS;
   public navRoutes = ROUTES; 
 
-  // define active route
-  constructor(private router: Router) {
-    this.router.events.subscribe((event: Event) => {
-
-        if (event instanceof NavigationEnd) {
-            this.currentRoute = event.urlAfterRedirects;
-        }
-    });
-}
-
   public toggleMenu(): void {
     this.isExpanded = !this.isExpanded;
     this.isLinkHidden = !this.isLinkHidden;

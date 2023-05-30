@@ -1,5 +1,5 @@
 export const ROUTES = {
-  CHARACTERS: '/main',
+  CHARACTERS: '/characters',
   FILMS: '/films',
   PLANETS: '/planets',
   VEHICLES: '/vehicles',
