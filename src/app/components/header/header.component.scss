@@ -101,7 +101,7 @@ $toggle: calc(($size + $margin * 2) * 1.5);
     padding: $size;
     padding-top: 28px;
     line-height: 0;
-    border-radius: calc($size/6);
+    border-radius: $border-radius;
     overflow: hidden;
     position: relative;
     @include box-shadow();
@@ -109,11 +109,14 @@ $toggle: calc(($size + $margin * 2) * 1.5);
 
     &.expanded {
       // toolbar width
-      width: calc($toggle * 11.44);
+      width: 100%;
     }
 
     &-container {
       position: relative;
+      width: calc(100% - $w-bg-container);
+      display: flex;
+      justify-content: flex-end;
     }
 
     &-menu {

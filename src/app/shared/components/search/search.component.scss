@@ -1,0 +1,21 @@
+@import "../../../../styles";
+
+.search {
+  &-container {
+    width: $width-item;
+  }
+  &-input {
+    width: 100%;
+    padding: 1rem 1.5rem;
+    @include box-shadow();
+    border-radius: $border-radius;
+    outline: none;
+    border: none;
+    font-size: 1.6rem;
+    color: $c-brown;
+
+    &::placeholder {
+      color: $c-placeholder;
+    }
+  }
+}

@@ -1,8 +1,9 @@
 @import "../../../../styles";
 
 .toolbar {
-
-  &-top, &-bottom {
+  
+  &-top,
+  &-bottom {
     display: flex;
     justify-content: space-between;
     margin-bottom: 1.5rem;

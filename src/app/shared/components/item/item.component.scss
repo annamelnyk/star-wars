@@ -1,16 +1,14 @@
 @import "../../../../styles";
 
-$border-radius: 5px;
-
 .item {
   border-top-right-radius: $border-radius;
   border-bottom-right-radius: $border-radius;
   background-color: $c-brown-light;
   padding: 2rem 4rem;
-  margin-bottom: 2rem;
   box-shadow: 10px 10px 15px rgba(59, 38, 38, 0.25);
   position: relative;
   display: flex;
+  width: $width-item;
 
   &-index {
     width: 35px;

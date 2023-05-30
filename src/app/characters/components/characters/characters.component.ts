@@ -24,4 +24,5 @@ export class CharactersComponent implements OnInit {
     console.log('characters ', this.characters);
     return character.name;
   }
+
 }

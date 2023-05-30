@@ -1,6 +1,8 @@
 <div class="toolbar">
   <div class="toolbar-top">
-    <app-title></app-title>
+    <app-title [activeRoute]="activeRoute"></app-title>
   </div>
-  <div class="toolbar-bottom"></div>
+  <div class="toolbar-bottom">
+    <app-search [listCategory]="activeRoute"></app-search>
+  </div>
 </div>

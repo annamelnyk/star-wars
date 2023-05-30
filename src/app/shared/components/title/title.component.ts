@@ -1,7 +1,4 @@
-import { Component } from '@angular/core';
-import { Router, Event, NavigationEnd} from '@angular/router';
-
-import { ROUTES } from 'src/app/data/constants';
+import { Component, Input } from '@angular/core';
 
 @Component({
   selector: 'app-title',
@@ -9,15 +6,6 @@ import { ROUTES } from 'src/app/data/constants';
   styleUrls: ['./title.component.scss']
 })
 export class TitleComponent {
-  public currentRoute: string = ROUTES.CHARACTERS;
-
-  // define active route
-  constructor(private router: Router) {
-    this.router.events.subscribe((event: Event) => {
-
-        if (event instanceof NavigationEnd) {
-            this.currentRoute = event.urlAfterRedirects.replace('/', '');
-        }
-    });
-}
+  @Input() activeRoute: string = '';
+  
 }
