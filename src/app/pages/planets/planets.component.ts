@@ -2,9 +2,6 @@ import { Component } from '@angular/core';
 
 @Component({
   selector: 'app-planets',
-  templateUrl: './planets.component.html',
-  styleUrls: ['./planets.component.scss']
+  template: `<app-main-items-list-block collectionName='planets'></app-main-items-list-block>`,
 })
-export class PlanetsComponent {
-
-}
+export class PlanetsComponent {}

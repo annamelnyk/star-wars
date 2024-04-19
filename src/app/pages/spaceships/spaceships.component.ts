@@ -2,9 +2,6 @@ import { Component } from '@angular/core';
 
 @Component({
   selector: 'app-spaceships',
-  templateUrl: './spaceships.component.html',
-  styleUrls: ['./spaceships.component.scss']
+  template: `<app-main-items-list-block collectionName='starships'></app-main-items-list-block>`,
 })
-export class SpaceshipsComponent {
-
-}
+export class SpaceshipsComponent {}

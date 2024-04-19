@@ -29,6 +29,9 @@
     font-size: 1.9rem;
     font-weight: 700;
     margin-bottom: 1rem;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
   }
 
   &-read {

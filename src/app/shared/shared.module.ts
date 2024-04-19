@@ -6,6 +6,7 @@ import { ToolbarComponent } from './components/toolbar/toolbar.component';
 import { TitleComponent } from './components/title/title.component';
 import { SearchComponent } from './components/search/search.component';
 import { SpinnerComponent } from './components/spinner/spinner.component';
+import { MainItemsListBlockComponent } from './components/main-items-list-block/main-items-list-block.component';
 
 
 
@@ -15,9 +16,10 @@ import { SpinnerComponent } from './components/spinner/spinner.component';
     ToolbarComponent,
     TitleComponent,
     SearchComponent,
-    SpinnerComponent
+    SpinnerComponent,
+    MainItemsListBlockComponent
   ],
-  exports: [ItemComponent, ToolbarComponent, TitleComponent, SearchComponent, SpinnerComponent],
+  exports: [ItemComponent, ToolbarComponent, TitleComponent, SearchComponent, SpinnerComponent, MainItemsListBlockComponent],
   imports: [
     CommonModule,
     FormsModule

@@ -4,11 +4,11 @@
   <ul class="list">
     <app-item
       *ngFor="
-        let character of characters;
+        let item of itemsList;
         let i = index;
-        trackBy: characterTrackBy
+        trackBy: itemTrackBy
       "
-      [title]="character.name"
+      [title]="item.name"
       [index]="i + 1"
     ></app-item>
   </ul>

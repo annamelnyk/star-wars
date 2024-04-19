@@ -2,9 +2,7 @@ import { Component } from '@angular/core';
 
 @Component({
   selector: 'app-vehicles',
-  templateUrl: './vehicles.component.html',
-  styleUrls: ['./vehicles.component.scss']
+  template: `<app-main-items-list-block collectionName='vehicles'></app-main-items-list-block>`,
 })
-export class VehiclesComponent {
+export class VehiclesComponent {}
 
-}

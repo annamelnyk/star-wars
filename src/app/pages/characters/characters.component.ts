@@ -1,32 +1,7 @@
-import { Component, OnInit } from '@angular/core'
-
-import { SwapiService } from '../../services/swapi.service'
-import { ICharacter } from 'src/app/data/models/character'
+import { Component } from '@angular/core'
 
 @Component({
   selector: 'app-characters',
-  templateUrl: './characters.component.html',
-  styleUrls: ['./characters.component.scss'],
+  template: `<app-main-items-list-block collectionName="people"></app-main-items-list-block>`,
 })
-export class CharactersComponent implements OnInit {
-  public characters: ICharacter[] = [];
-  isLoading = false
-
-  constructor(private swapiService: SwapiService) { }
-
-  ngOnInit(): void {
-    this.isLoading = true
-    this.swapiService
-      .getData('people')
-      .subscribe((ch: any) => {
-        this.characters = ch.results
-        this.isLoading = false
-      })
-  }
-
-  characterTrackBy(index: number, character: ICharacter): string {
-    console.log('characters ', this.characters)
-    return character.name
-  }
-
-}
+export class CharactersComponent {}
