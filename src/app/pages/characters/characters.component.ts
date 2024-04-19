@@ -1,8 +1,7 @@
 import { Component, OnInit } from '@angular/core'
 
-import { SwapiService } from '../../../services/swapi.service'
+import { SwapiService } from '../../services/swapi.service'
 import { ICharacter } from 'src/app/data/models/character'
-import { IBaseUrl } from 'src/app/data/models/base-url'
 
 @Component({
   selector: 'app-characters',
@@ -21,7 +20,7 @@ export class CharactersComponent implements OnInit {
       .getData('people')
       .subscribe((ch: any) => {
         this.characters = ch.results
-        //this.isLoading = false
+        this.isLoading = false
       })
   }
 

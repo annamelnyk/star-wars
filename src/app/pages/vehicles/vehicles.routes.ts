@@ -1,6 +1,6 @@
 import { Routes } from '@angular/router';
 
-import { VehiclesComponent } from './components/vehicles/vehicles.component';
+import { VehiclesComponent } from './vehicles.component';
 
 export const VEHICLES_ROUTES: Routes = [
   {

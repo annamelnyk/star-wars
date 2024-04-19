@@ -1,6 +1,6 @@
 import { Routes } from '@angular/router';
 
-import { SpaceshipsComponent } from './components/spaceships/spaceships.component';
+import { SpaceshipsComponent } from './spaceships.component';
 
 export const SPACESHIPS_ROUTES: Routes = [
   {

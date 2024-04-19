@@ -2,8 +2,8 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterModule } from '@angular/router';
 
-import { CharactersComponent } from './components/characters/characters.component';
-import { SharedModule } from '../shared/shared.module';
+import { CharactersComponent } from './characters.component';
+import { SharedModule } from '../../shared/shared.module';
 import { CHARACTER_ROUTES } from './characters.routes';
 
 @NgModule({

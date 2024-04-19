@@ -1,6 +1,6 @@
 import { Routes } from '@angular/router';
 
-import { PlanetsComponent } from './components/planets/planets.component';
+import { PlanetsComponent } from './planets.component';
 
 export const PLANETS_ROUTES: Routes = [
   {
