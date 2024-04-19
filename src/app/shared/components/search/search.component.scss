@@ -1,9 +1,8 @@
 @import "../../../../styles";
 
 .search {
-  &-container {
-    width: $width-item;
-  }
+  width: 100%;
+
   &-input {
     width: 100%;
     padding: 1rem 1.5rem;

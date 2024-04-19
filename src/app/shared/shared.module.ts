@@ -5,6 +5,7 @@ import { ItemComponent } from './components/item/item.component';
 import { ToolbarComponent } from './components/toolbar/toolbar.component';
 import { TitleComponent } from './components/title/title.component';
 import { SearchComponent } from './components/search/search.component';
+import { SpinnerComponent } from './components/spinner/spinner.component';
 
 
 
@@ -13,13 +14,14 @@ import { SearchComponent } from './components/search/search.component';
     ItemComponent,
     ToolbarComponent,
     TitleComponent,
-    SearchComponent
+    SearchComponent,
+    SpinnerComponent
   ],
-  exports: [ItemComponent, ToolbarComponent, TitleComponent, SearchComponent],
+  exports: [ItemComponent, ToolbarComponent, TitleComponent, SearchComponent, SpinnerComponent],
   imports: [
     CommonModule,
     FormsModule
   ],
-  
+
 })
 export class SharedModule { }

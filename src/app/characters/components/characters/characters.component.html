@@ -1,12 +1,15 @@
 <app-toolbar></app-toolbar>
-<ul class="list">
-  <app-item
-    *ngFor="
-      let character of characters;
-      let i = index;
-      trackBy: characterTrackBy
-    "
-    [title]="character.name"
-    [index]="i + 1"
-  ></app-item>
-</ul>
+<app-spinner *ngIf="isLoading; else listItems"></app-spinner>
+<ng-template #listItems>
+  <ul class="list">
+    <app-item
+      *ngFor="
+        let character of characters;
+        let i = index;
+        trackBy: characterTrackBy
+      "
+      [title]="character.name"
+      [index]="i + 1"
+    ></app-item>
+  </ul>
+</ng-template>

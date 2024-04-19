@@ -1,8 +1,8 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit } from '@angular/core'
 
-import { SwapiService } from '../../../services/swapi.service';
-import { ICharacter } from 'src/app/data/models/character';
-import { IBaseUrl } from 'src/app/data/models/base-url';
+import { SwapiService } from '../../../services/swapi.service'
+import { ICharacter } from 'src/app/data/models/character'
+import { IBaseUrl } from 'src/app/data/models/base-url'
 
 @Component({
   selector: 'app-characters',
@@ -11,18 +11,23 @@ import { IBaseUrl } from 'src/app/data/models/base-url';
 })
 export class CharactersComponent implements OnInit {
   public characters: ICharacter[] = [];
+  isLoading = false
 
-  constructor(private swapiService: SwapiService) {}
+  constructor(private swapiService: SwapiService) { }
 
   ngOnInit(): void {
+    this.isLoading = true
     this.swapiService
       .getData('people')
-      .subscribe((ch: any) => (this.characters = ch.results));
+      .subscribe((ch: any) => {
+        this.characters = ch.results
+        //this.isLoading = false
+      })
   }
 
   characterTrackBy(index: number, character: ICharacter): string {
-    console.log('characters ', this.characters);
-    return character.name;
+    console.log('characters ', this.characters)
+    return character.name
   }
 
 }
