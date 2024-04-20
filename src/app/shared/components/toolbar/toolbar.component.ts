@@ -2,6 +2,7 @@ import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { Router, Event, NavigationEnd } from '@angular/router';
 
 import { ROUTES } from 'src/app/data/constants';
+import { Observable } from 'rxjs';
 
 @Component({
   selector: 'app-toolbar',
@@ -10,7 +11,7 @@ import { ROUTES } from 'src/app/data/constants';
 })
 export class ToolbarComponent {
   public activeRoute: string = ROUTES.CHARACTERS;
-  @Input() pagesAmount: number = 0
+  @Input() pagesAmount!: Observable<number>
   @Output() activePage = new EventEmitter<number>()
 
   // define active route

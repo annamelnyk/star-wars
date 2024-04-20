@@ -1,4 +1,4 @@
-<app-toolbar [pagesAmount]="_pagesAmount$.getValue()" (activePage)="displayActivePageData($event)"></app-toolbar>
+<app-toolbar [pagesAmount]="pagesAmount$" (activePage)="displayActivePageData($event)"></app-toolbar>
 <app-spinner *ngIf="isLoading; else listItems"></app-spinner>
 <ng-template #listItems>
   <ul class="list">
