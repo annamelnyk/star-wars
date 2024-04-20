@@ -5,4 +5,10 @@
   &-bottom {
     margin-bottom: 1.5rem;
   }
+
+  &-bottom {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
 }

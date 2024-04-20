@@ -13,9 +13,9 @@ export class SwapiService {
 
   constructor(private _http: HttpClient) {}
 
-  
-  getData(resource: string): Observable<IBaseUrl> {
-    return this._http.get<IBaseUrl>(`${this.apiUrl}/${resource}`);
+
+  getData(resource: string, page: number = 1): Observable<IBaseUrl> {
+    return this._http.get<IBaseUrl>(`${this.apiUrl}/${resource}?page=${page}`);
   }
 
   getDataItem(resource: SwapiResource, index: number) {

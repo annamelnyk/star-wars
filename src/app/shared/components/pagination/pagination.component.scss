@@ -1,0 +1,33 @@
+@import "../../../../styles";
+
+.pagination {
+  &-container {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+
+  &-item,
+  &-arrow {
+    border: 2px solid $c-brown-light;
+    background-color: $c-brown-light;
+    color: $c-yellow;
+    font-size: 1.5rem;
+    font-weight: 700;
+    border-radius: 5px;
+    padding: 8px 15px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+  }
+
+  &-item {
+    &.active {
+      background-color: $c-red;
+      border-color: $c-brown-light;
+    }
+  }
+  &-arrow {
+  }
+}

@@ -3,7 +3,7 @@
 .sw {
   &-container {
     min-height: 100vh;
-    background-image: 
+    background-image:
     // url("../assets/images/SW-main.jpg"),
       linear-gradient($bg-yellow-1, $bg-yellow-2);
     background-repeat: no-repeat;
@@ -34,7 +34,6 @@
     }
 
     &-list-container {
-      width: 50%;
       max-height: 100%;
     }
   }

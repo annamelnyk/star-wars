@@ -10,6 +10,8 @@ import { ROUTES } from 'src/app/data/constants';
 })
 export class ToolbarComponent {
   public activeRoute: string = ROUTES.CHARACTERS;
+  @Input() pagesAmount: number = 0
+  @Output() activePage = new EventEmitter<number>()
 
   // define active route
   constructor(private router: Router) {
@@ -18,5 +20,10 @@ export class ToolbarComponent {
         this.activeRoute = event.urlAfterRedirects.replace('/', '');
       }
     });
+  }
+
+  onShowPage(e: any) {
+    console.log('toolber onshowPage', e)
+    this.activePage.emit(e)
   }
 }

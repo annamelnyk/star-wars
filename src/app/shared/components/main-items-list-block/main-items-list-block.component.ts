@@ -1,4 +1,7 @@
-import { Component, OnInit, Input } from '@angular/core'
+import { Component, OnInit, Input, inject, DestroyRef } from '@angular/core'
+import { takeUntilDestroyed } from '@angular/core/rxjs-interop'
+
+import { BehaviorSubject } from 'rxjs'
 import { ICharacter } from 'src/app/data/models/character'
 import { SwapiService } from 'src/app/services/swapi.service'
 
@@ -10,22 +13,38 @@ import { SwapiService } from 'src/app/services/swapi.service'
 export class MainItemsListBlockComponent implements OnInit {
   public itemsList: ICharacter[] = [];
   isLoading = false
+  pagesAmount: number = 0
+  _pagesAmount$ = new BehaviorSubject<number>(0)
+  private _activePage$ = new BehaviorSubject<number>(1)
+  activePage$ = this._activePage$.asObservable()
+  private destroyRef = inject(DestroyRef)
   @Input() collectionName!: string
 
   constructor(private swapiService: SwapiService) { }
 
   ngOnInit(): void {
     this.isLoading = true
+    this.activePage$
+      .pipe(takeUntilDestroyed(this.destroyRef))
+      .subscribe((value) => {
+
+      })
+
     this.swapiService
-      .getData(this.collectionName)
+      .getData(this.collectionName, this._activePage$.getValue())
       .subscribe((data: any) => {
         this.itemsList = data.results
+        this._pagesAmount$.next(data.count)
         this.isLoading = false
       })
   }
 
   itemTrackBy(index: number, item: ICharacter): string {
-    console.log('itemsList ', this.itemsList)
     return item.name
+  }
+
+  displayActivePageData(e: number) {
+    console.log('page displayActivePageData', e)
+    this._activePage$.next(e)
   }
 }

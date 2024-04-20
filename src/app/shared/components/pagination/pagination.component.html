@@ -1,0 +1,5 @@
+<div class="pagination-container">
+  <div class="pagination-arrow">&lt;</div>
+  <div class="pagination-item" [class.active]="isPageActive(page)" *ngFor="let page of pagesList" (click)="pageOnCLick(page)">{{page}}</div>
+  <div class="pagination-arrow">&gt;</div>
+</div>

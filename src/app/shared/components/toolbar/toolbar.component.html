@@ -4,5 +4,6 @@
   </div>
   <div class="toolbar-bottom">
     <app-search [listCategory]="activeRoute"></app-search>
+    <app-pagination [pagesAmount]="pagesAmount" (showPage)="onShowPage($event)"></app-pagination>
   </div>
 </div>
