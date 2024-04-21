@@ -1,12 +1,17 @@
-import { Component, EventEmitter, Input, Output, OnInit } from '@angular/core'
+import { Component, EventEmitter, Input, Output, OnInit, OnDestroy } from '@angular/core'
 import { Observable } from 'rxjs'
+
+enum StorageKeys {
+  FirstPage = 'firstPage',
+  LastPage = 'lastPage'
+}
 
 @Component({
   selector: 'app-pagination',
   templateUrl: './pagination.component.html',
   styleUrls: ['./pagination.component.scss']
 })
-export class PaginationComponent implements OnInit {
+export class PaginationComponent implements OnInit, OnDestroy {
   @Input() pagesAmount!: Observable<number>
   @Output() showPage = new EventEmitter<number>()
   pagesList: number[] = []
@@ -24,7 +29,17 @@ export class PaginationComponent implements OnInit {
       }
 
       this.pagesList = [...pages]
-      this.paginationList = [...this.pagesList].slice(0, 3)
+
+      if (localStorage.getItem(StorageKeys.FirstPage)) {
+        const firstPageIndex = this.pagesList.findIndex((e: number) => e === Number(localStorage.getItem(StorageKeys.FirstPage)))
+        const lastPageIndex = this.pagesList.findIndex((e: number) => e === Number(localStorage.getItem(StorageKeys.LastPage)))
+
+        this.paginationList = [...this.pagesList].slice(firstPageIndex, lastPageIndex + 1)
+      } else {
+        this.paginationList = [...this.pagesList].slice(0, 3)
+        this.savePaginationInStorage()
+      }
+
       console.log('pageList', this.pagesList)
       console.log('fullPagesAmount', fullPagesAmount)
       console.log('notFullOage', notFullPage)
@@ -61,11 +76,11 @@ export class PaginationComponent implements OnInit {
       this.paginationList.shift()
       this.paginationList.push(this.pagesList[index + 1])
       console.log('NEXT', this.paginationList)
+      this.savePaginationInStorage()
     }
   }
 
   goToPrevious() {
-
     const firstShownPage: number = this.paginationList[0]
     const index = this.pagesList.findIndex((e: number) => e === firstShownPage)
 
@@ -73,7 +88,19 @@ export class PaginationComponent implements OnInit {
     if (firstShownPage && this.pagesList[index - 1]) {
       this.paginationList.pop()
       this.paginationList.unshift(this.pagesList[index - 1])
+      this.savePaginationInStorage()
       console.log('prev ', this.paginationList)
     }
+  }
+
+  savePaginationInStorage() {
+    if (!this.paginationList.length) return
+
+    localStorage.setItem(StorageKeys.FirstPage, this.paginationList[0].toString())
+    localStorage.setItem(StorageKeys.LastPage, this.paginationList[this.paginationList.length - 1]?.toString())
+  }
+
+  ngOnDestroy() {
+    localStorage.clear()
   }
 }
