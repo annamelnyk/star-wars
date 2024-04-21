@@ -1,7 +1,7 @@
 import { Component, OnInit, Input, inject, DestroyRef } from '@angular/core'
 import { takeUntilDestroyed } from '@angular/core/rxjs-interop'
 
-import { BehaviorSubject, Observable } from 'rxjs'
+import { BehaviorSubject } from 'rxjs'
 import { ICharacter } from 'src/app/data/models/character'
 import { SwapiService } from 'src/app/services/swapi.service'
 

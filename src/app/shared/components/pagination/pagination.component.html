@@ -1,5 +1,5 @@
 <div class="pagination-container" *ngIf="pagesList.length">
-  <div class="pagination-arrow">&lt;</div>
+  <div class="pagination-arrow" (click)="goToPrevious()" [class.hidden]="isBtnDisabled('prev')">&lt;</div>
   <div class="pagination-item" [class.active]="isPageActive(page)" *ngFor="let page of paginationList" (click)="pageOnCLick(page)">{{page}}</div>
-  <div class="pagination-arrow">&gt;</div>
+  <div class="pagination-arrow" (click)="goToNext()" [class.hidden]="isBtnDisabled('next')">&gt;</div>
 </div>
