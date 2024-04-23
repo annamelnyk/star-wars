@@ -23,8 +23,23 @@ export class SwapiService {
     return this._http.get(`${this.apiUrl}/${resource}/${index}`)
   }
 
-  addToFavourite(item: SwapiResource) {
-    this.favourites.push(item)
+  addToFavourite(resourseItem: SwapiResource) {
+    this.favourites.push(resourseItem)
+    console.log('add ', this.favourites)
+  }
 
+  removeFromFavourite(resourseItem: SwapiResource) {
+    this.favourites = this.favourites.filter((item) => {
+      if ('title' in resourseItem) {
+        return item.title !== resourseItem.title
+      }
+
+      if ('name' in resourseItem) {
+        return item.name !== resourseItem.name
+      }
+
+      return item
+    })
+    console.log('remove ', this.favourites)
   }
 }

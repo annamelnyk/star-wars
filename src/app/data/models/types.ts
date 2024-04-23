@@ -15,6 +15,7 @@ export interface ICharacter {
   created: string;
   edited: string;
   url: string;
+  favourite?: boolean;
 }
 
 export interface IFilm {
@@ -32,6 +33,7 @@ export interface IFilm {
   created: string;
   edited: string;
   url: string;
+  favourite?: boolean;
 }
 
 export interface IPlanet {
@@ -49,6 +51,7 @@ export interface IPlanet {
   created: string;
   edited: string;
   url: string;
+  favourite?: boolean;
 }
 
 export interface IStarship {
@@ -70,6 +73,7 @@ export interface IStarship {
   created: string;
   edited: string;
   url: string;
+  favourite?: boolean;
 }
 
 export interface IVehicle {
@@ -89,6 +93,7 @@ export interface IVehicle {
   created: string;
   edited: string;
   url: string;
+  favourite?: boolean;
 }
 
 export type SwapiResource = ICharacter | IFilm | IPlanet | IStarship | IVehicle;

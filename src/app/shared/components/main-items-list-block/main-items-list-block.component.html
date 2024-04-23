@@ -8,8 +8,9 @@
         let i = index;
         trackBy: itemTrackBy
       "
-      [title]="item.name"
+      [item]="item"
       [index]="i + 1"
+      (onFavourite)="markFavouriteItem($event)"
     ></app-item>
   </ul>
 </ng-template>
