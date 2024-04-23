@@ -1,7 +1,7 @@
 import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { Router, Event, NavigationEnd } from '@angular/router';
 
-import { ROUTES } from 'src/app/data/constants';
+import { ROUTES, Tab } from 'src/app/data/constants';
 import { Observable } from 'rxjs';
 
 @Component({
@@ -13,6 +13,8 @@ export class ToolbarComponent {
   public activeRoute: string = ROUTES.CHARACTERS;
   @Input() pagesAmount!: Observable<number>
   @Output() activePage = new EventEmitter<number>()
+  @Output() activeTab = new EventEmitter<string>()
+  Tab = Tab
 
   // define active route
   constructor(private router: Router) {
@@ -25,5 +27,9 @@ export class ToolbarComponent {
 
   onShowPage(e: any) {
     this.activePage.emit(e)
+  }
+
+  onTabSelectHandler(tab: string) {
+    this.activeTab.emit(tab)
   }
 }

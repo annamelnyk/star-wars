@@ -9,6 +9,6 @@
     font-weight: 700;
   }
   &-active {
-    border-bottom: 6px groove $c-red;
+    @include grooveBorder(6px);
   }
 }

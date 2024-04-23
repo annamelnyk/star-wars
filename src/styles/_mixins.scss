@@ -12,3 +12,14 @@
   left: 50%;
   transform: translate(-50%, -50%);
 }
+
+@mixin grooveBorder($width) {
+  border-bottom: $width groove $c-red;
+}
+
+
+@mixin regularText() {
+  font-size: 1.6rem;
+  font-weight: 700;
+  color: $c-brown-light;
+}

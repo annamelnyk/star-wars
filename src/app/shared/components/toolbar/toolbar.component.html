@@ -2,8 +2,11 @@
   <div class="toolbar-top">
     <app-title [activeRoute]="activeRoute"></app-title>
   </div>
-  <div class="toolbar-bottom">
+  <div class="toolbar-middle">
     <app-search [listCategory]="activeRoute"></app-search>
     <app-pagination [pagesAmount]="pagesAmount" (showPage)="onShowPage($event)"></app-pagination>
+  </div>
+  <div class="toolbar-bottom">
+    <app-tabs [tabs]="[Tab.All, Tab.Favourites]" (onTabSelect)="onTabSelectHandler($event)"></app-tabs>
   </div>
 </div>

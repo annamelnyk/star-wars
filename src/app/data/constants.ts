@@ -5,3 +5,8 @@ export const ROUTES = {
   VEHICLES: '/vehicles',
   SPACESHIPS: '/spaceships',
 }
+
+export enum Tab {
+  Favourites = 'favourites',
+  All = 'all'
+}

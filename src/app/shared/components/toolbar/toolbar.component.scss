@@ -2,14 +2,19 @@
 
 .toolbar {
   &-top,
+  &-middle,
   &-bottom {
     margin-bottom: 1.5rem;
   }
 
-  &-bottom {
+  &-middle {
     min-width: 820px;
     display: flex;
     justify-content: space-between;
     align-items: center;
+  }
+
+  &-bottom {
+    text-align: center;
   }
 }

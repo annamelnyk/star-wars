@@ -1,5 +1,5 @@
 import { Component, EventEmitter, Input, Output } from '@angular/core'
-import { SwapiResource } from 'src/app/data/models/types'
+import { SwapiResource, SwapiResourseField } from 'src/app/data/models/types'
 import { SwapiService } from 'src/app/services/swapi.service'
 
 @Component({
@@ -15,14 +15,13 @@ export class ItemComponent {
   constructor(private swapiService: SwapiService) {}
 
   getTitle(): string {
-    if ('title' in this.item) return this.item.title
-    if ('name' in this.item) return this.item.name
+    if (SwapiResourseField.Title in this.item) return this.item.title
+    if (SwapiResourseField.Name in this.item) return this.item.name
 
     return ''
   }
 
   getFavouriteIconClass(): string {
-    console.log('favourite??? ', this.item)
     return this.item.favourite ? 'fa-solid fa-star' : 'fa-regular fa-star'
   }
 

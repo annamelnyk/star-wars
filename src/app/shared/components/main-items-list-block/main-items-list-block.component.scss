@@ -1,0 +1,7 @@
+@import "../../../../styles";
+
+.empty-list-message {
+  text-align: center;
+  @include regularText();
+  margin: 30px 0;
+}

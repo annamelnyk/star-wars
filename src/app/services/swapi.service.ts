@@ -3,7 +3,7 @@ import { Injectable } from '@angular/core'
 import { HttpClient } from '@angular/common/http'
 import { Observable } from 'rxjs'
 
-import { SwapiResource, IBaseUrl } from '../data/models/types'
+import { SwapiResource, IBaseUrl, SwapiResourseField } from '../data/models/types'
 
 @Injectable({
   providedIn: 'root',
@@ -25,21 +25,19 @@ export class SwapiService {
 
   addToFavourite(resourseItem: SwapiResource) {
     this.favourites.push(resourseItem)
-    console.log('add ', this.favourites)
   }
 
   removeFromFavourite(resourseItem: SwapiResource) {
     this.favourites = this.favourites.filter((item) => {
-      if ('title' in resourseItem) {
+      if (SwapiResourseField.Title in resourseItem) {
         return item.title !== resourseItem.title
       }
 
-      if ('name' in resourseItem) {
+      if (SwapiResourseField.Name in resourseItem) {
         return item.name !== resourseItem.name
       }
 
       return item
     })
-    console.log('remove ', this.favourites)
   }
 }
