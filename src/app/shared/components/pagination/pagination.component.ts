@@ -39,10 +39,6 @@ export class PaginationComponent implements OnInit, OnDestroy {
         this.paginationList = [...this.pagesList].slice(0, 3)
         this.savePaginationInStorage()
       }
-
-      console.log('pageList', this.pagesList)
-      console.log('fullPagesAmount', fullPagesAmount)
-      console.log('notFullOage', notFullPage)
     })
   }
 
@@ -62,7 +58,6 @@ export class PaginationComponent implements OnInit, OnDestroy {
 
   pageOnCLick(page: number) {
     this.currentPage = page
-    console.log('click', page)
     this.showPage.emit(page)
   }
 
@@ -75,7 +70,6 @@ export class PaginationComponent implements OnInit, OnDestroy {
     if (lastShownPage && this.pagesList[index + 1]) {
       this.paginationList.shift()
       this.paginationList.push(this.pagesList[index + 1])
-      console.log('NEXT', this.paginationList)
       this.savePaginationInStorage()
     }
   }
@@ -89,7 +83,6 @@ export class PaginationComponent implements OnInit, OnDestroy {
       this.paginationList.pop()
       this.paginationList.unshift(this.pagesList[index - 1])
       this.savePaginationInStorage()
-      console.log('prev ', this.paginationList)
     }
   }
 

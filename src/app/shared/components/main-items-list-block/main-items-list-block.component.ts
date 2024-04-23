@@ -2,7 +2,7 @@ import { Component, OnInit, Input, inject, DestroyRef } from '@angular/core'
 import { takeUntilDestroyed } from '@angular/core/rxjs-interop'
 
 import { BehaviorSubject } from 'rxjs'
-import { ICharacter } from 'src/app/data/models/character'
+import { ICharacter } from 'src/app/data/models/types'
 import { SwapiService } from 'src/app/services/swapi.service'
 
 @Component({
@@ -31,7 +31,7 @@ export class MainItemsListBlockComponent implements OnInit {
         .getData(this.collectionName, value)
         .subscribe((data: any) => {
           this.itemsList = data.results
-          this._pagesAmount$.next(data.count)
+          this._pagesAmount$.next(data.total_records)
           this.isLoading = false
         })
       })
@@ -42,7 +42,6 @@ export class MainItemsListBlockComponent implements OnInit {
   }
 
   displayActivePageData(e: number) {
-    console.log('page displayActivePageData', e)
     this.isLoading = true
     this._activePage$.next(e)
   }

@@ -1,6 +1,7 @@
 # StarWars
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 15.2.0.
+Project use public api [Star Wars API!](https://www.swapi.tech/documentation)
 
 ## Development server
 

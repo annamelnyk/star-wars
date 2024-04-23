@@ -24,7 +24,6 @@ export class ToolbarComponent {
   }
 
   onShowPage(e: any) {
-    console.log('toolber onshowPage', e)
     this.activePage.emit(e)
   }
 }

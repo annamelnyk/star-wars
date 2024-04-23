@@ -21,7 +21,6 @@ export class SearchComponent implements OnInit {
   }
 
   updateSearch(value: string): void {
-    console.log(value);
     this.searchValue$.next(value);
   }
 
