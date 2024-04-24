@@ -101,7 +101,18 @@ export interface IVehicle {
   category?: string
 }
 
-export type SwapiResource = ICharacter | IFilm | IPlanet | IStarship | IVehicle
+interface HasAdditionalInfo {
+  favourite: boolean
+  category: string
+}
+
+type ICharacterInfo = ICharacter & HasAdditionalInfo
+type IFilmInfo = IFilm & HasAdditionalInfo
+type IPlanetInfo = IPlanet & HasAdditionalInfo
+type IStarshipInfo = IStarship & HasAdditionalInfo
+type IVehicleInfo = IVehicle & HasAdditionalInfo
+
+export type SwapiResource = ICharacterInfo | IFilmInfo | IPlanetInfo | IStarshipInfo | IVehicleInfo
 
 export interface IBaseUrl {
   message: string
