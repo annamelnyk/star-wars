@@ -10,10 +10,9 @@ import { SwapiResource, IBaseUrl, SwapiResourseField } from '../data/models/type
 })
 export class SwapiService {
   private apiUrl: string = 'https://www.swapi.tech/api'; //'https://swapi.dev/api'
-  favourites: SwapiResource[] = []
+  favourites: any[] = []
 
   constructor(private _http: HttpClient) { }
-
 
   getData(resource: string, page: number = 1): Observable<IBaseUrl> {
     return this._http.get<IBaseUrl>(`${this.apiUrl}/${resource}?page=${page}&limit=10`)

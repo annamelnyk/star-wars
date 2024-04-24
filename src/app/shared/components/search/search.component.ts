@@ -1,5 +1,5 @@
-import { Component, Input, Output, EventEmitter, OnInit } from '@angular/core';
-import { Subject } from 'rxjs';
+import { Component, Input, Output, EventEmitter, OnInit } from '@angular/core'
+import { Subject, startWith, debounceTime } from 'rxjs'
 
 @Component({
   selector: 'app-search',
@@ -15,21 +15,23 @@ export class SearchComponent implements OnInit {
   @Output() public searchInput: EventEmitter<string> = new EventEmitter();
 
   ngOnInit(): void {
-    this.searchValue$.subscribe((value: string) =>
-      this.searchInput.emit(value)
-    );
+    this.searchValue$
+      .pipe(startWith(''), debounceTime(500))
+      .subscribe((value: string) =>
+        this.searchInput.emit(value)
+      )
   }
 
   updateSearch(value: string): void {
-    this.searchValue$.next(value);
+    this.searchValue$.next(value)
   }
 
   public buildPlaceholder(): string {
     const singleCategoryItem = this.listCategory.substring(
       0,
       this.listCategory.length - 1
-    );
+    )
 
-    return `Search by ${singleCategoryItem} name`;
+    return `Search by ${singleCategoryItem} name`
   }
 }
