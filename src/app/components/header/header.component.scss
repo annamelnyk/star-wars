@@ -8,11 +8,19 @@ $toggle: calc(($size + $margin * 2) * 1.5);
 .header {
   padding: 0 2rem;
   display: flex;
-  justify-content: space-between;
+  flex-direction: column;
+  justify-content: center;
   align-items: center;
   color: $bg-yellow-2;
   position: relative;
   z-index: 1;
+  margin-bottom: 15px;
+
+  @include xl {
+    flex-direction: row;
+    justify-content: space-between;
+    margin-bottom: 0;
+  }
 
   &-logo {
     width: 135px;
@@ -25,6 +33,10 @@ $toggle: calc(($size + $margin * 2) * 1.5);
     text-decoration: none;
     margin-right: 0.3rem;
     margin-left: 2rem;
+
+    @include xl {
+      font-size: 2rem;
+    }
 
     &:hover,
     &.active {
@@ -66,7 +78,7 @@ $toggle: calc(($size + $margin * 2) * 1.5);
       transition-delay: 0.8s;
 
       .header-link {
-        margin-right: 0;
+        margin-right: 30px;
       }
     }
 
@@ -98,7 +110,7 @@ $toggle: calc(($size + $margin * 2) * 1.5);
     background: $c-brown-light;
     height: $toggle;
     width: $toggle;
-    padding: $size;
+    padding: #{calc($size/2)};
     padding-top: 28px;
     line-height: 0;
     border-radius: $border-radius;
@@ -107,14 +119,17 @@ $toggle: calc(($size + $margin * 2) * 1.5);
     @include box-shadow();
     @include transition(1.3s);
 
+    @include xl {
+      padding: $size;
+    }
+
     &.expanded {
-      // toolbar width
       width: 100%;
     }
 
     &-container {
       position: relative;
-      width: calc(100% - $w-bg-container);
+      //width: calc(100% - $w-bg-container);
       display: flex;
       justify-content: flex-end;
     }

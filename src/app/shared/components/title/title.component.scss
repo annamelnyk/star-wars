@@ -1,6 +1,12 @@
 @import "../../../../styles";
 
 .title {
+  text-align: center;
+
+  @include xl {
+    text-align: left;
+  }
+
   &,
   &-active {
     color: $c-brown-light;

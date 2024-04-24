@@ -15,9 +15,14 @@
 
   &-main {
     display: flex;
-    justify-content: flex-start;
-    align-items: flex-start;
-    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+
+    @include xl {
+      justify-content: flex-start;
+      align-items: flex-start;
+      flex-wrap: wrap;
+    }
 
     &-img {
       position: relative;
@@ -29,7 +34,11 @@
       overflow: hidden;
 
       &-container {
-        width: $w-bg-container;
+        display:  none;
+
+        @include xl {
+          width: $w-bg-container;
+        }
       }
     }
 
