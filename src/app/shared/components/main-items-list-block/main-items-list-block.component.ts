@@ -24,6 +24,7 @@ export class MainItemsListBlockComponent implements OnInit {
   collectionToRender: SwapiResource[] = []
   isLoading = false
   pagesAmount = 0
+  searchQuery = ''
   private _pagesAmount$ = new BehaviorSubject<number>(this.pagesAmount)
   pagesAmount$ = this._pagesAmount$.asObservable()
   private _activePage$ = new BehaviorSubject<number>(1)
@@ -66,7 +67,7 @@ export class MainItemsListBlockComponent implements OnInit {
       }
     })
 
-    this.itemsList[Tab.Favourites] = this.swapiService.favourites.filter(i =>  i?.category === this.collectionName)
+    this.itemsList[Tab.Favourites] = this.swapiService.favourites.filter(i => i?.category === this.collectionName)
   }
 
   itemTrackBy(index: number, item: SwapiResource): string {
@@ -102,5 +103,9 @@ export class MainItemsListBlockComponent implements OnInit {
         this._pagesAmount$.next(this.pagesAmount)
         this.collectionToRender = this.itemsList[Tab.All]
     }
+  }
+
+  getSearchValue(value: string) {
+    this.searchQuery = value
   }
 }

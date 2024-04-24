@@ -8,6 +8,7 @@
   box-shadow: 10px 10px 15px rgba(59, 38, 38, 0.25);
   position: relative;
   display: flex;
+  align-items: baseline;
   width: $width-item;
 
   &-index {

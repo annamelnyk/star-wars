@@ -10,6 +10,7 @@ import { SpinnerComponent } from './components/spinner/spinner.component';
 import { MainItemsListBlockComponent } from './components/main-items-list-block/main-items-list-block.component';
 import { PaginationComponent } from './components/pagination/pagination.component';
 import { TabsComponent } from './components/tabs/tabs.component';
+import { SearchPipe } from '../pipes/search.pipe'
 
 @NgModule({
   declarations: [
@@ -22,7 +23,7 @@ import { TabsComponent } from './components/tabs/tabs.component';
     PaginationComponent,
     TabsComponent
   ],
-  imports: [CommonModule, RouterModule, FormsModule],
+  imports: [CommonModule, RouterModule, FormsModule, SearchPipe],
   exports: [ItemComponent, ToolbarComponent, TitleComponent, SearchComponent, SpinnerComponent, MainItemsListBlockComponent],
 
 })

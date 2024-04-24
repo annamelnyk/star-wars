@@ -10,7 +10,7 @@ import { SwapiResource, IBaseUrl, SwapiResourseField } from '../data/models/type
 })
 export class SwapiService {
   private apiUrl: string = 'https://www.swapi.tech/api'; //'https://swapi.dev/api'
-  favourites: any[] = []
+  favourites: SwapiResource[] = []
 
   constructor(private _http: HttpClient) { }
 
