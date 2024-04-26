@@ -1,4 +1,5 @@
 import { Routes } from '@angular/router';
+
 import { CharactersComponent } from './pages/characters/characters.component'
 import { DetailsComponent } from './pages/details/details.component'
 
@@ -6,13 +7,11 @@ export const APP_ROUTES: Routes = [
   { path: '', redirectTo: 'characters', pathMatch: 'full' },
   {
     path: 'characters',
-    component: CharactersComponent,
     loadChildren: () =>
       import('./pages/characters/characters.module').then((m) => m.CharactersModule),
   },
   {
     path: 'characters/:id',
-    component: DetailsComponent,
     loadChildren: () =>
       import('./pages/details/details.module').then((m) => m.DetailsModule),
   },
@@ -23,7 +22,6 @@ export const APP_ROUTES: Routes = [
   },
   {
     path: 'films/:id',
-    component: DetailsComponent,
     loadChildren: () =>
       import('./pages/details/details.module').then((m) => m.DetailsModule),
   },
@@ -34,7 +32,6 @@ export const APP_ROUTES: Routes = [
   },
   {
     path: 'planets/:id',
-    component: DetailsComponent,
     loadChildren: () =>
       import('./pages/details/details.module').then((m) => m.DetailsModule),
   },
@@ -45,7 +42,6 @@ export const APP_ROUTES: Routes = [
   },
   {
     path: 'vehicles/:id',
-    component: DetailsComponent,
     loadChildren: () =>
       import('./pages/details/details.module').then((m) => m.DetailsModule),
   },
@@ -56,9 +52,8 @@ export const APP_ROUTES: Routes = [
   },
   {
     path: 'spaceships/:id',
-    component: DetailsComponent,
     loadChildren: () =>
       import('./pages/details/details.module').then((m) => m.DetailsModule),
   },
-  { path: '**', redirectTo: 'characters', pathMatch: 'full' },
+  { path: '**', redirectTo: '/', pathMatch: 'full' },
 ];

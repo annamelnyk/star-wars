@@ -1,5 +1,4 @@
 import { Component, EventEmitter, Input, Output } from '@angular/core'
-import { buildDetailsUrl } from 'src/app/data/helpers'
 import { SwapiResource, SwapiResourseField } from 'src/app/data/models/types'
 import { SwapiService } from 'src/app/services/swapi.service'
 
@@ -28,9 +27,5 @@ export class ItemComponent {
 
   addOrRemoveToFavourite() {
     this.onFavourite.emit(this.item)
-  }
-
-  buildDetailsUrl() {
-    return buildDetailsUrl(this.item)
   }
 }

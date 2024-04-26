@@ -18,8 +18,8 @@ export class SwapiService {
     return this._http.get<IBaseUrl>(`${this.apiUrl}/${resource}?page=${page}&limit=10`)
   }
 
-  getDataItem(resource: SwapiResource, index: number) {
-    return this._http.get(`${this.apiUrl}/${resource}/${index}`)
+  getItemById(resource: SwapiResource, id: number) {
+    return this._http.get(`${this.apiUrl}/${resource}/${id}`)
   }
 
   addToFavourite(resourseItem: SwapiResource) {
