@@ -8,9 +8,10 @@ import { AppComponent } from './app.component';
 import { APP_ROUTES } from './app.routes';
 import { HeaderComponent } from './components/header/header.component';
 import { FooterComponent } from './components/footer/footer.component';
+import { DetailsComponent } from './pages/details/details.component';
 
 @NgModule({
-  declarations: [AppComponent, HeaderComponent, FooterComponent],
+  declarations: [AppComponent, HeaderComponent, FooterComponent, DetailsComponent],
   imports: [
     BrowserModule,
     RouterModule.forRoot(APP_ROUTES),
