@@ -1,17 +1,14 @@
 import { Routes } from '@angular/router';
 
-import { CharactersComponent } from './pages/characters/characters.component'
-import { DetailsComponent } from './pages/details/details.component'
-
 export const APP_ROUTES: Routes = [
-  { path: '', redirectTo: 'characters', pathMatch: 'full' },
+  { path: '', redirectTo: 'people', pathMatch: 'full' },
   {
-    path: 'characters',
+    path: 'people',
     loadChildren: () =>
       import('./pages/characters/characters.module').then((m) => m.CharactersModule),
   },
   {
-    path: 'characters/:id',
+    path: 'people/:id',
     loadChildren: () =>
       import('./pages/details/details.module').then((m) => m.DetailsModule),
   },

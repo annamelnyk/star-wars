@@ -129,9 +129,12 @@ $toggle: calc(($size + $margin * 2) * 1.5);
 
     &-container {
       position: relative;
-      //width: calc(100% - $w-bg-container);
       display: flex;
       justify-content: flex-end;
+
+      @include xl {
+        width: calc(100% - $w-bg-container);
+      }
     }
 
     &-menu {

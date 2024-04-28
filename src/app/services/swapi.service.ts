@@ -3,7 +3,7 @@ import { Injectable } from '@angular/core'
 import { HttpClient } from '@angular/common/http'
 import { Observable } from 'rxjs'
 
-import { SwapiResource, IBaseUrl, SwapiResourseField } from '../data/models/types'
+import { SwapiResource, IBaseUrl, SwapiResourseField, SwapiInitialResource } from '../data/models/types'
 
 @Injectable({
   providedIn: 'root',
@@ -18,8 +18,8 @@ export class SwapiService {
     return this._http.get<IBaseUrl>(`${this.apiUrl}/${resource}?page=${page}&limit=10`)
   }
 
-  getItemById(resource: SwapiResource, id: number) {
-    return this._http.get(`${this.apiUrl}/${resource}/${id}`)
+  getItemById(resource: string, id: number) {
+    return this._http.get<SwapiInitialResource>(`${this.apiUrl}/${resource}/${id}`)
   }
 
   addToFavourite(resourseItem: SwapiResource) {

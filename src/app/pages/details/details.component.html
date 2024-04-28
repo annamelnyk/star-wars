@@ -1,1 +1,5 @@
-<p>details works!!!!!!!!!!!</p>
+<h1>{{item?.name ?? item?.title}}</h1>
+<div *ngFor="let key of itemKeys">
+<span>{{key}}: </span>
+<span>{{item[key]}}</span>
+</div>

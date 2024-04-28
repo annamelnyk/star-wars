@@ -112,6 +112,7 @@ type IPlanetInfo = IPlanet & HasAdditionalInfo
 type IStarshipInfo = IStarship & HasAdditionalInfo
 type IVehicleInfo = IVehicle & HasAdditionalInfo
 
+export type SwapiInitialResource = ICharacter | IFilm | IPlanet | IStarship | IVehicle
 export type SwapiResource = ICharacterInfo | IFilmInfo | IPlanetInfo | IStarshipInfo | IVehicleInfo
 
 export interface IBaseUrl {
