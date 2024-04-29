@@ -1,5 +1,10 @@
-<h1>{{item?.name ?? item?.title}}</h1>
-<div *ngFor="let key of itemKeys">
-<span>{{key}}: </span>
-<span>{{item[key]}}</span>
-</div>
+<app-title
+  [category]="collectionName"
+  [underlined]="title"
+></app-title>
+<section class="information">
+  <p *ngFor="let item of itemKeys">
+    <span class="information-key">{{ item.key }}: </span>
+    <span class="information-value">{{ item.value }}</span>
+  </p>
+</section>

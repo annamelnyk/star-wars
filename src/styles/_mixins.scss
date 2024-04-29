@@ -59,3 +59,27 @@ $xxl: 1900px;
   font-weight: 700;
   color: $c-brown-light;
 }
+
+@mixin informationBlock {
+  border-top-right-radius: $border-radius;
+  border-bottom-right-radius: $border-radius;
+  background-color: $c-brown-light;
+  padding: 2rem 4rem;
+  box-shadow: 10px 10px 15px rgba(59, 38, 38, 0.25);
+  position: relative;
+  display: flex;
+  align-items: baseline;
+
+  &::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 6px;
+    height: 100%;
+    background: $c-red;
+    @include transition(1s);
+    z-index: 0;
+  }
+
+}

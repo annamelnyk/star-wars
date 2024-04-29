@@ -1,0 +1,26 @@
+@import "../../../styles";
+
+.information {
+  @include informationBlock;
+  flex-direction: column;
+  width: 100%;
+  margin-top: 1.5rem;
+
+  &-key,
+  &-value {
+    margin-bottom: 1rem;
+    font-size: 1.9rem;
+  }
+
+  &-key {
+    font-weight: 700;
+    color: $c-red;
+    text-transform: capitalize;
+  }
+
+  &-value {
+    color: $bg-yellow-2;
+    font-weight: 500;
+    margin-left: 1rem;
+  }
+}

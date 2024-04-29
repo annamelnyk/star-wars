@@ -3,12 +3,12 @@ import { Routes } from '@angular/router';
 export const APP_ROUTES: Routes = [
   { path: '', redirectTo: 'people', pathMatch: 'full' },
   {
-    path: 'people',
+    path: 'characters',
     loadChildren: () =>
       import('./pages/characters/characters.module').then((m) => m.CharactersModule),
   },
   {
-    path: 'people/:id',
+    path: 'characters/:id',
     loadChildren: () =>
       import('./pages/details/details.module').then((m) => m.DetailsModule),
   },

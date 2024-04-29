@@ -6,6 +6,7 @@ import { Component, Input } from '@angular/core';
   styleUrls: ['./title.component.scss']
 })
 export class TitleComponent {
-  @Input() activeRoute: string = '';
-  
+  @Input() category: string = '';
+  @Input() underlined: string = '';
+
 }
