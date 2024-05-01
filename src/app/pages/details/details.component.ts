@@ -1,8 +1,6 @@
 import { Component, inject, OnInit, DestroyRef } from '@angular/core'
 import { takeUntilDestroyed } from '@angular/core/rxjs-interop'
 import { ActivatedRoute, Router } from '@angular/router'
-import { ROUTES } from 'src/app/data/constants'
-import { SwapiInitialResource, SwapiResource } from 'src/app/data/models/types'
 import { SwapiService } from 'src/app/services/swapi.service'
 
 @Component({
@@ -11,21 +9,22 @@ import { SwapiService } from 'src/app/services/swapi.service'
   styleUrls: ['./details.component.scss']
 })
 export class DetailsComponent implements OnInit {
+  private destroyRef = inject(DestroyRef)
   item: any = null
   itemKeys: any[] = []
   collectionName = ''
-  private destroyRef = inject(DestroyRef)
   title: string = ''
+  isLoading = false
 
   constructor(private activatedRoute: ActivatedRoute, private swapiService: SwapiService, private router: Router) { }
 
   ngOnInit(): void {
+    this.isLoading = true
     const itemId = this.activatedRoute.snapshot.params['id']
     const urlSymbols = this.router.url.split('/')
     this.collectionName = urlSymbols[0] || urlSymbols[1]
     let collectionInApi = this.collectionName
     if (collectionInApi === 'characters') collectionInApi = 'people'
-
 
     this.swapiService
       .getItemById(collectionInApi, Number(itemId))
@@ -33,6 +32,7 @@ export class DetailsComponent implements OnInit {
       .subscribe((data: any) => {
         this.formatItem(data.result.properties)
         this.title = this.getTitle()
+        this.isLoading = false
       })
 
     console.log(this.item)
@@ -61,11 +61,11 @@ export class DetailsComponent implements OnInit {
   }
 
   getTitle(): string {
-    const includesName = this.itemKeys.find(v => v.name)
-    if (includesName) return includesName.name
+    const includesName = this.itemKeys.find(item => item.key === 'name')
+    if (includesName) return includesName.value
 
-    const includesTitle = this.itemKeys.find(v => v.title)
-    if (includesTitle) return includesName.title
+    const includesTitle = this.itemKeys.find(item => item.key === 'title')
+    if (includesTitle) return includesTitle.value
 
     return ''
   }

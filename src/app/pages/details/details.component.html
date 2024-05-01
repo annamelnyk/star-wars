@@ -1,10 +1,10 @@
-<app-title
-  [category]="collectionName"
-  [underlined]="title"
-></app-title>
-<section class="information">
-  <p *ngFor="let item of itemKeys">
-    <span class="information-key">{{ item.key }}: </span>
-    <span class="information-value">{{ item.value }}</span>
-  </p>
-</section>
+<app-spinner *ngIf="isLoading; else detailsBlock"></app-spinner>
+<ng-template #detailsBlock>
+  <app-title [category]="collectionName" [underlined]="title"></app-title>
+  <section class="information">
+    <p *ngFor="let item of itemKeys">
+      <span class="information-key">{{ item.key }}: </span>
+      <span class="information-value">{{ item.value }}</span>
+    </p>
+  </section>
+</ng-template>

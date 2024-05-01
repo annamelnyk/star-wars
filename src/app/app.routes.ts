@@ -1,7 +1,7 @@
 import { Routes } from '@angular/router';
 
 export const APP_ROUTES: Routes = [
-  { path: '', redirectTo: 'people', pathMatch: 'full' },
+  { path: '', redirectTo: 'characters', pathMatch: 'full' },
   {
     path: 'characters',
     loadChildren: () =>
