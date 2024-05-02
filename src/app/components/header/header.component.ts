@@ -9,9 +9,9 @@ import { ROUTES } from 'src/app/data/constants';
   styleUrls: ['./header.component.scss'],
 })
 export class HeaderComponent {
-  public isExpanded: boolean = true;
-  public isLinkHidden: boolean = false;
-  public isToggleClose: boolean = true;
+  public isExpanded: boolean = false;
+  public isLinkHidden: boolean = true;
+  public isToggleClose: boolean = false;
   public currentRoute: string = ROUTES.CHARACTERS;
   public navRoutes = ROUTES;
 

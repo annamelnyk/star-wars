@@ -1,13 +1,16 @@
-<app-spinner *ngIf="isLoading"></app-spinner>
-<ng-container *ngIf="!isLoading && isErrorOccured">
-  <p class="error">{{ errorMessage }}</p>
-</ng-container>
-<ng-container *ngIf="!isLoading && !isErrorOccured">
-  <app-title [category]="collectionName" [underlined]="title"></app-title>
-  <section class="information">
-    <p *ngFor="let item of itemKeys">
-      <span class="information-key">{{ item.key }}: </span>
-      <span class="information-value">{{ item.value }}</span>
-    </p>
-  </section>
-</ng-container>
+<div class="details-container">
+  <app-spinner *ngIf="isLoading"></app-spinner>
+  <ng-container *ngIf="!isLoading && isErrorOccured">
+    <p class="error">{{ errorMessage }}</p>
+  </ng-container>
+  <ng-container *ngIf="!isLoading && !isErrorOccured">
+    <app-title [category]="collectionName" [underlined]="title"></app-title>
+    <section class="information">
+      <p *ngFor="let item of itemKeys">
+        <span class="information-key">{{ item.key }}: </span>
+        <span class="information-value">{{ item.value }}</span>
+      </p>
+    </section>
+  </ng-container>
+</div>
+
