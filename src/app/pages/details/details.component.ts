@@ -85,4 +85,8 @@ export class DetailsComponent implements OnInit {
   checkIfDataShouldBeOmitted(field: string): boolean {
     return field === 'edited' || field === 'created' || field.includes('http')
   }
+
+  goBack() {
+    this.router.navigate(['../'], { relativeTo: this.activatedRoute })
+  }
 }
