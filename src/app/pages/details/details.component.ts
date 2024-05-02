@@ -2,6 +2,7 @@ import { HttpErrorResponse } from '@angular/common/http'
 import { Component, inject, OnInit, DestroyRef } from '@angular/core'
 import { takeUntilDestroyed } from '@angular/core/rxjs-interop'
 import { ActivatedRoute, Router } from '@angular/router'
+import { SwapiResourseField } from 'src/app/data/models/types'
 import { SwapiService } from 'src/app/services/swapi.service'
 
 @Component({
@@ -13,6 +14,7 @@ export class DetailsComponent implements OnInit {
   private destroyRef = inject(DestroyRef)
   item: any = null
   itemKeys: any[] = []
+  isItemFavourite = false
   collectionName = ''
   title: string = ''
   isLoading = false
@@ -37,6 +39,7 @@ export class DetailsComponent implements OnInit {
           console.log('DATA Details: ', data)
           this.formatItem(data.result.properties)
           this.title = this.getTitle()
+          this.isItemFavourite = this.swapiService.checkIsItemFavourite(data.result.properties)
           this.isLoading = false
         },
         (err: HttpErrorResponse) => {
@@ -84,6 +87,10 @@ export class DetailsComponent implements OnInit {
 
   checkIfDataShouldBeOmitted(field: string): boolean {
     return field === 'edited' || field === 'created' || field.includes('http')
+  }
+
+  isFavouriteIcon(): string {
+    return this.isItemFavourite ? 'fa-solid fa-star' : 'fa-regular fa-star'
   }
 
   goBack() {

@@ -39,4 +39,22 @@ export class SwapiService {
       return item
     })
   }
+
+  checkIsItemFavourite(item: SwapiResource | null): boolean {
+    if (!item) return false
+
+    const containsInFavourite = this.favourites.find((i: any) => {
+      if (SwapiResourseField.Title in item && SwapiResourseField.Title in i) {
+        return item.title === i.title
+      }
+
+      if (SwapiResourseField.Name in item && SwapiResourseField.Name in i) {
+        return item.name === i.name
+      }
+
+      return undefined
+    })
+
+    return Boolean(containsInFavourite)
+  }
 }

@@ -7,6 +7,7 @@
   <ng-container *ngIf="!isLoading && !isErrorOccured">
     <app-title [category]="collectionName" [underlined]="title"></app-title>
     <section class="information">
+      <i class="{{isFavouriteIcon()}} star-icon"></i>
       <p *ngFor="let item of itemKeys">
         <span class="information-key">{{ item.key }}: </span>
         <span class="information-value">{{ item.value }}</span>

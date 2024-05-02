@@ -29,6 +29,14 @@
   }
 }
 
+.star-icon {
+  position: absolute;
+  right: 1.5rem;
+  top: 1.5rem;
+  font-size: 3rem;
+  color: $bg-yellow-2;
+}
+
 .error {
   font-size: 18px;
   color: red;
