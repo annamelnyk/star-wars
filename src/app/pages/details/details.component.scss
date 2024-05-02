@@ -3,7 +3,8 @@
 .information {
   @include informationBlock;
   flex-direction: column;
-  width: 100%;
+  width: 500px;
+  max-width: 100%;
   margin-top: 1.5rem;
 
   &-key,
