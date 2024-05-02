@@ -1,4 +1,7 @@
-<app-spinner *ngIf="isLoading; else detailsBlock"></app-spinner>
+<app-spinner *ngIf="isLoading"></app-spinner>
+<ng-container *ngIf="isErrorOccured; else detailsBlock">
+  <p class="error">{{ errorMessage }}</p>
+</ng-container>
 <ng-template #detailsBlock>
   <app-title [category]="collectionName" [underlined]="title"></app-title>
   <section class="information">

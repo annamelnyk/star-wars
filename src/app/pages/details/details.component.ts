@@ -1,3 +1,4 @@
+import { HttpErrorResponse } from '@angular/common/http'
 import { Component, inject, OnInit, DestroyRef } from '@angular/core'
 import { takeUntilDestroyed } from '@angular/core/rxjs-interop'
 import { ActivatedRoute, Router } from '@angular/router'
@@ -15,6 +16,8 @@ export class DetailsComponent implements OnInit {
   collectionName = ''
   title: string = ''
   isLoading = false
+  isErrorOccured = false
+  errorMessage = 'Oops, something went wrong :('
 
   constructor(private activatedRoute: ActivatedRoute, private swapiService: SwapiService, private router: Router) { }
 
@@ -29,11 +32,20 @@ export class DetailsComponent implements OnInit {
     this.swapiService
       .getItemById(collectionInApi, Number(itemId))
       .pipe(takeUntilDestroyed(this.destroyRef))
-      .subscribe((data: any) => {
-        this.formatItem(data.result.properties)
-        this.title = this.getTitle()
-        this.isLoading = false
-      })
+      .subscribe(
+        (data: any) => {
+          console.log('DATA Details: ', data)
+          this.formatItem(data.result.properties)
+          this.title = this.getTitle()
+          this.isLoading = false
+        },
+        (err: HttpErrorResponse) => {
+          console.log('ERRRRRRRRR')
+          this.isLoading = false
+          this.isErrorOccured = true
+          this.errorMessage = err.message ? err.message : this.errorMessage
+        }
+      )
 
     console.log(this.item)
   }
