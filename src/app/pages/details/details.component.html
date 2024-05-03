@@ -1,7 +1,7 @@
 <div class="details-container">
   <app-spinner *ngIf="isLoading"></app-spinner>
   <ng-container *ngIf="!isLoading && isErrorOccured">
-    <p class="error">{{ errorMessage }}</p>
+    <app-widget-error *ngIf="isErrorOccured" class="error" [error]="error"></app-widget-error>
     <ng-container [ngTemplateOutlet]="backButton"></ng-container>
   </ng-container>
   <ng-container *ngIf="!isLoading && !isErrorOccured">

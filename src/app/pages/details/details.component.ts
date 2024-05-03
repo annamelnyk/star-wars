@@ -19,7 +19,7 @@ export class DetailsComponent implements OnInit {
   title: string = ''
   isLoading = false
   isErrorOccured = false
-  errorMessage = 'Oops, something went wrong :('
+  error: Error | null = null
 
   constructor(private activatedRoute: ActivatedRoute, private swapiService: SwapiService, private router: Router) { }
 
@@ -46,7 +46,7 @@ export class DetailsComponent implements OnInit {
           console.log('ERRRRRRRRR')
           this.isLoading = false
           this.isErrorOccured = true
-          this.errorMessage = err.message ? err.message : this.errorMessage
+          this.error = err
         }
       )
 

@@ -11,6 +11,7 @@ import { MainItemsListBlockComponent } from './components/main-items-list-block/
 import { PaginationComponent } from './components/pagination/pagination.component'
 import { TabsComponent } from './components/tabs/tabs.component'
 import { SearchPipe } from '../pipes/search.pipe'
+import { WidgetErrorComponent } from './widget-error/widget-error.component'
 
 @NgModule({
   declarations: [
@@ -22,6 +23,7 @@ import { SearchPipe } from '../pipes/search.pipe'
     MainItemsListBlockComponent,
     PaginationComponent,
     TabsComponent,
+    WidgetErrorComponent,
   ],
   imports: [CommonModule, RouterModule, FormsModule, SearchPipe],
   exports: [
@@ -31,6 +33,7 @@ import { SearchPipe } from '../pipes/search.pipe'
     SearchComponent,
     SpinnerComponent,
     MainItemsListBlockComponent,
+    WidgetErrorComponent
   ],
 
 })
