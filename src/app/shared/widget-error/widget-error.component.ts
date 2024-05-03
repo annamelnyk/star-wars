@@ -3,15 +3,12 @@ import { Component, Input } from '@angular/core'
 @Component({
   selector: 'app-widget-error',
   template: `
-    <h5>Widget Error: </h5>
+  <div class="widget-container">
+    <h5>Error: </h5>
     <p class="message">{{error?.message}}</p>
+  </div>
   `,
-  styles: [`
-    :host { padding: 5px 15px; box-sizing: border-box; display: block; color: red; background-color: #ffe2e2; }
-    p, h5 { margin: 0 }
-    p {font-size: 10px}
-    h5 { margin-bottom: 3px; font-size: 12px }
-  `]
+  styleUrls: ['./widget-error.component.scss']
 })
 export class WidgetErrorComponent {
   @Input() error: Error | null = null
