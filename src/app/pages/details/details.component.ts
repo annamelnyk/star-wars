@@ -12,6 +12,7 @@ import { SwapiService } from 'src/app/services/swapi.service'
 })
 export class DetailsComponent implements OnInit {
   private destroyRef = inject(DestroyRef)
+  private destroyRefExtra = inject(DestroyRef)
   item: any = null
   itemKeys: any[] = []
   isItemFavourite = false
@@ -21,6 +22,8 @@ export class DetailsComponent implements OnInit {
   isErrorOccured = false
   error: Error | null = null
   imageSrc = ''
+  additionalFields: {name: string, items: string[]}[] = []
+  isAdditionalInfoLoading = false
 
   constructor(private activatedRoute: ActivatedRoute, private swapiService: SwapiService, private router: Router) { }
 
@@ -70,7 +73,8 @@ export class DetailsComponent implements OnInit {
         continue
       }
 
-      if (Array.isArray(item[key])) {
+      if (Array.isArray(item[key]) && item[key].length) {
+        this.additionalFields.push({name: key, items: []})
         this.renderAdditionalInfoBlocks(key, item[key])
         continue
       }
@@ -92,7 +96,29 @@ export class DetailsComponent implements OnInit {
   }
 
   renderAdditionalInfoBlocks(collectionName: string, urls: string[]) {
-    console.log('omit')
+    urls.forEach(url => {
+      this.swapiService.getItemByUrl(url)
+      .pipe(takeUntilDestroyed(this.destroyRefExtra))
+      .subscribe((data: any) => {
+        this.isAdditionalInfoLoading = true
+        this.additionalFields.forEach(f => {
+          console.log('DATAAAAAA ', data)
+          if (collectionName === f.name) {
+
+            if ('name' in data) {
+              f.items.push(data.name)
+              return
+            }
+
+            if ('title' in data) {
+              f.items.push(data.title)
+            }
+          }
+        })
+        console.log('additipnalFielsds ', this.additionalFields)
+        this.isAdditionalInfoLoading = false
+      })
+    })
   }
 
   getTitle(): string {

@@ -8,21 +8,30 @@
     ></app-widget-error>
     <ng-container [ngTemplateOutlet]="backButton"></ng-container>
   </ng-container>
-  <ng-container *ngIf="!isLoading && !isErrorOccured">
+  <section *ngIf="!isLoading && !isErrorOccured">
     <app-title [category]="collectionName" [underlined]="title" [showFavourite]="isItemFavourite"></app-title>
     <div class="top-container">
-      <section class="information">
+      <div class="information">
         <p *ngFor="let item of itemKeys">
           <span class="information-key">{{ item.key }}: </span>
           <span class="information-value">{{ item.value }}</span>
         </p>
-      </section>
+      </div>
       <div class="top-photo-container" *ngIf="imageSrc">
         <img [src]="imageSrc" [alt]="getTitle()" />
       </div>
     </div>
+    <div class="bottom-container" *ngIf="additionalFields.length">
+      <div class="additional-block" *ngFor="let field of additionalFields">
+        <h1>{{field.name}}</h1>
+        <app-spinner *ngIf="isAdditionalInfoLoading"></app-spinner>
+        <div class="additional-block-list" *ngIf="!isAdditionalInfoLoading">
+          <h3 *ngFor="let item of field.items">{{item}}</h3>
+        </div>
+      </div>
+    </div>
     <ng-container [ngTemplateOutlet]="backButton"></ng-container>
-  </ng-container>
+  </section>
 </div>
 
 <ng-template #backButton>
