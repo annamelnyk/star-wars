@@ -1,14 +1,13 @@
 @import "../../../styles";
 
 .details-container {
-  width: 500px;
-  max-width: 100%;
+ // width: 50%;
+  //max-width: 100%;
 }
 
 .information {
   @include informationBlock;
   flex-direction: column;
-  margin-top: 1.5rem;
 
   &-key,
   &-value {
@@ -27,14 +26,6 @@
     font-weight: 500;
     margin-left: 1rem;
   }
-}
-
-.star-icon {
-  position: absolute;
-  right: 1.5rem;
-  top: 1.5rem;
-  font-size: 3rem;
-  color: $bg-yellow-2;
 }
 
 .error {
@@ -58,5 +49,25 @@
     font-size: 1.5rem;
     font-weight: 700;
     margin-right: 5px;
+  }
+}
+
+.top-container {
+  display: flex;
+  justify-content: space-between;
+  gap: 25px;
+  margin-top: 30px;
+}
+
+.top-photo-container {
+  width: 250px;
+  border: 2px solid $c-red;
+  border-radius: $border-radius;
+  box-shadow: 10px 10px 15px rgba(59, 38, 38, 0.25);
+  background-color: $c-brown-light;
+
+  img {
+    width: 100%;
+    height: auto;
   }
 }

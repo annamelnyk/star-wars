@@ -47,8 +47,9 @@ export class MainItemsListBlockComponent implements OnInit {
             this.itemsList[Tab.All] = data.results
             this.checkFavouriteItems()
             this.collectionToRender = this.itemsList[Tab.All]
-            this.pagesAmount = data.total_records
-            this._pagesAmount$.next(data.total_records)
+            console.log(data)
+            this.pagesAmount = data.count
+            this._pagesAmount$.next(data.count)
             this.isLoading = false
           })
       })

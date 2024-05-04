@@ -2,7 +2,7 @@ import { HttpErrorResponse } from '@angular/common/http'
 import { Component, inject, OnInit, DestroyRef } from '@angular/core'
 import { takeUntilDestroyed } from '@angular/core/rxjs-interop'
 import { ActivatedRoute, Router } from '@angular/router'
-import { SwapiResourseField } from 'src/app/data/models/types'
+import { SwapiInitialResource, SwapiResourseField } from 'src/app/data/models/types'
 import { SwapiService } from 'src/app/services/swapi.service'
 
 @Component({
@@ -20,6 +20,7 @@ export class DetailsComponent implements OnInit {
   isLoading = false
   isErrorOccured = false
   error: Error | null = null
+  imageSrc = ''
 
   constructor(private activatedRoute: ActivatedRoute, private swapiService: SwapiService, private router: Router) { }
 
@@ -31,31 +32,46 @@ export class DetailsComponent implements OnInit {
     let collectionInApi = this.collectionName
     if (collectionInApi === 'characters') collectionInApi = 'people'
 
+    this.imageSrc = this.getImageSrc(itemId)
+
     this.swapiService
       .getItemById(collectionInApi, Number(itemId))
       .pipe(takeUntilDestroyed(this.destroyRef))
-      .subscribe(
-        (data: any) => {
-          console.log('DATA Details: ', data)
-          this.formatItem(data.result.properties)
+      .subscribe({
+        next: (data: any) => {
+          this.formatItem(data)
           this.title = this.getTitle()
-          this.isItemFavourite = this.swapiService.checkIsItemFavourite(data.result.properties)
+          this.isItemFavourite = this.swapiService.checkIsItemFavourite(data)
           this.isLoading = false
         },
-        (err: HttpErrorResponse) => {
+        error: (err: HttpErrorResponse) => {
           console.log('ERRRRRRRRR')
           this.isLoading = false
           this.isErrorOccured = true
           this.error = err
         }
-      )
+      })
 
     console.log(this.item)
   }
 
+  getImageSrc(id: string): string {
+    if (id && this.collectionName) {
+      return `https://starwars-visualguide.com/assets/img/${this.collectionName}/${id}.jpg`
+    }
+
+    return ''
+  }
+
   formatItem(item: any) {
+    console.log('ITEM: ', item)
     for (let key in item) {
       if (this.checkIfDataShouldBeOmitted(key) || this.checkIfDataShouldBeOmitted(item[key])) {
+        continue
+      }
+
+      if (Array.isArray(item[key])) {
+        this.renderAdditionalInfoBlocks(key, item[key])
         continue
       }
 
@@ -75,6 +91,10 @@ export class DetailsComponent implements OnInit {
     }
   }
 
+  renderAdditionalInfoBlocks(collectionName: string, urls: string[]) {
+    console.log('omit')
+  }
+
   getTitle(): string {
     const includesName = this.itemKeys.find(item => item.key === 'name')
     if (includesName) return includesName.value
@@ -87,10 +107,6 @@ export class DetailsComponent implements OnInit {
 
   checkIfDataShouldBeOmitted(field: string): boolean {
     return field === 'edited' || field === 'created' || field.includes('http')
-  }
-
-  isFavouriteIcon(): string {
-    return this.isItemFavourite ? 'fa-solid fa-star' : 'fa-regular fa-star'
   }
 
   goBack() {

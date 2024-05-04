@@ -9,10 +9,11 @@ import { APP_ROUTES } from './app.routes'
 import { HeaderComponent } from './components/header/header.component'
 import { FooterComponent } from './components/footer/footer.component'
 import { SharedModule } from './shared/shared.module'
-import { GlobalErrorInterceptor } from './services/global-error-handler.interceptor'
+import { GlobalErrorInterceptor } from './services/global-error-handler.interceptor';
+import { NotFoundComponent } from './not-found/not-found.component'
 
 @NgModule({
-  declarations: [AppComponent, HeaderComponent, FooterComponent],
+  declarations: [AppComponent, HeaderComponent, FooterComponent, NotFoundComponent],
   imports: [
     BrowserModule,
     RouterModule.forRoot(APP_ROUTES),

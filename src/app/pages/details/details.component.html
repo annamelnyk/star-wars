@@ -1,18 +1,26 @@
 <div class="details-container">
   <app-spinner *ngIf="isLoading"></app-spinner>
   <ng-container *ngIf="!isLoading && isErrorOccured">
-    <app-widget-error *ngIf="isErrorOccured" class="error" [error]="error"></app-widget-error>
+    <app-widget-error
+      *ngIf="isErrorOccured"
+      class="error"
+      [error]="error"
+    ></app-widget-error>
     <ng-container [ngTemplateOutlet]="backButton"></ng-container>
   </ng-container>
   <ng-container *ngIf="!isLoading && !isErrorOccured">
-    <app-title [category]="collectionName" [underlined]="title"></app-title>
-    <section class="information">
-      <i class="{{isFavouriteIcon()}} star-icon"></i>
-      <p *ngFor="let item of itemKeys">
-        <span class="information-key">{{ item.key }}: </span>
-        <span class="information-value">{{ item.value }}</span>
-      </p>
-    </section>
+    <app-title [category]="collectionName" [underlined]="title" [showFavourite]="isItemFavourite"></app-title>
+    <div class="top-container">
+      <section class="information">
+        <p *ngFor="let item of itemKeys">
+          <span class="information-key">{{ item.key }}: </span>
+          <span class="information-value">{{ item.value }}</span>
+        </p>
+      </section>
+      <div class="top-photo-container" *ngIf="imageSrc">
+        <img [src]="imageSrc" [alt]="getTitle()" />
+      </div>
+    </div>
     <ng-container [ngTemplateOutlet]="backButton"></ng-container>
   </ng-container>
 </div>
@@ -23,4 +31,3 @@
     Back
   </button>
 </ng-template>
-

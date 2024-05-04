@@ -2,6 +2,7 @@
 
 .title {
   text-align: center;
+  position: relative;
 
   @include xl {
     text-align: left;
@@ -16,5 +17,14 @@
   }
   &-active {
     @include grooveBorder(6px);
+  }
+
+  .star-icon {
+    position: absolute;
+    right: -0.5rem;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 3rem;
+    color: $c-brown-light;
   }
 }

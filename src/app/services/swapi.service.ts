@@ -9,17 +9,21 @@ import { SwapiResource, IBaseUrl, SwapiResourseField, SwapiInitialResource } fro
   providedIn: 'root',
 })
 export class SwapiService {
-  private apiUrl: string = 'https://www.swapi.tech/api'; //'https://swapi.dev/api'
+  private apiUrl: string = 'https://swapi.dev/api'
   favourites: any[] = []
 
   constructor(private _http: HttpClient) { }
 
   getData(resource: string, page: number = 1): Observable<IBaseUrl> {
-    return this._http.get<IBaseUrl>(`${this.apiUrl}/${resource}?page=${page}&limit=10`)
+    return this._http.get<IBaseUrl>(`${this.apiUrl}/${resource}?page=${page}`)
   }
 
-  getItemById(resource: string, id: number) {
+  getItemById(resource: string, id: number): Observable<SwapiInitialResource> {
     return this._http.get<SwapiInitialResource>(`${this.apiUrl}/${resource}/${id}`)
+  }
+
+  getItemByUrl(url: string): Observable<SwapiInitialResource> {
+    return this._http.get<SwapiInitialResource>(url)
   }
 
   addToFavourite(resourseItem: SwapiResource) {
