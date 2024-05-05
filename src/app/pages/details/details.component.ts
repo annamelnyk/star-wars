@@ -24,6 +24,7 @@ export class DetailsComponent implements OnInit {
   imageSrc = ''
   additionalFields: {name: string, items: string[]}[] = []
   isAdditionalInfoLoading = false
+  showImage = true
 
   constructor(private activatedRoute: ActivatedRoute, private swapiService: SwapiService, private router: Router) { }
 
@@ -69,7 +70,7 @@ export class DetailsComponent implements OnInit {
   formatItem(item: any) {
     console.log('ITEM: ', item)
     for (let key in item) {
-      if (this.checkIfDataShouldBeOmitted(key) || this.checkIfDataShouldBeOmitted(item[key])) {
+      if (this.checkIfDataShouldBeOmitted(key) || this.checkIfDataShouldBeOmitted(item[key]) || (Array.isArray(item[key]) && !item[key].length)) {
         continue
       }
 
@@ -137,5 +138,9 @@ export class DetailsComponent implements OnInit {
 
   goBack() {
     this.router.navigate(['../'], { relativeTo: this.activatedRoute })
+  }
+
+  hideImage() {
+    this.showImage = false
   }
 }

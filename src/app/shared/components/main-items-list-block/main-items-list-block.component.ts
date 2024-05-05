@@ -35,6 +35,10 @@ export class MainItemsListBlockComponent implements OnInit {
 
   constructor(private swapiService: SwapiService) { }
 
+  get activePage() {
+    return this._activePage$.getValue()
+  }
+
   ngOnInit(): void {
     this.isLoading = true
     this.activePage$
@@ -108,5 +112,16 @@ export class MainItemsListBlockComponent implements OnInit {
 
   getSearchValue(value: string) {
     this.searchQuery = value
+  }
+
+  getItemId(item: SwapiResource): string {
+    return item.url
+      .split('/')
+      .filter(v => v)
+      .at(-1) as string
+  }
+
+  getItemIndex(i: number): number {
+    return this.activePage * 10 -10 + i
   }
 }

@@ -41,7 +41,7 @@
   background-color: $c-red;
   padding: 12px 16px;
   border-radius: $border-radius;
-  margin: 25px auto;
+  margin-top: 15px;
   cursor: pointer;
   outline: none;
 
@@ -61,6 +61,7 @@
 
 .top-photo-container {
   width: 250px;
+  height: 100%;
   border: 2px solid $c-red;
   border-radius: $border-radius;
   box-shadow: 10px 10px 15px rgba(59, 38, 38, 0.25);

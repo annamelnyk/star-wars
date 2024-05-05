@@ -9,7 +9,12 @@
     <ng-container [ngTemplateOutlet]="backButton"></ng-container>
   </ng-container>
   <section *ngIf="!isLoading && !isErrorOccured">
-    <app-title [category]="collectionName" [underlined]="title" [showFavourite]="isItemFavourite"></app-title>
+    <app-title
+      [category]="collectionName"
+      [underlined]="title"
+      [showFavourite]="isItemFavourite"
+    ></app-title>
+    <ng-container [ngTemplateOutlet]="backButton"></ng-container>
     <div class="top-container">
       <div class="information">
         <p *ngFor="let item of itemKeys">
@@ -17,20 +22,27 @@
           <span class="information-value">{{ item.value }}</span>
         </p>
       </div>
-      <div class="top-photo-container" *ngIf="imageSrc">
-        <img [src]="imageSrc" [alt]="getTitle()" />
+      <div class="top-photo-container" *ngIf="imageSrc && showImage">
+        <img [src]="imageSrc" [alt]="getTitle()" (error)="hideImage()"/>
       </div>
     </div>
-    <div class="bottom-container" *ngIf="additionalFields.length">
-      <div class="additional-block information" *ngFor="let field of additionalFields">
-        <h1 class="information-key">{{field.name}}</h1>
-        <app-spinner *ngIf="isAdditionalInfoLoading"></app-spinner>
-        <ul class="additional-block-list" *ngIf="!isAdditionalInfoLoading">
-          <li class="information-value" *ngFor="let item of field.items"><span class="information-value list-content">{{item}}</span></li>
+    <app-spinner *ngIf="isAdditionalInfoLoading"></app-spinner>
+    <div
+      class="bottom-container"
+      *ngIf="additionalFields.length && !isAdditionalInfoLoading"
+    >
+      <div
+        class="additional-block information"
+        *ngFor="let field of additionalFields"
+      >
+        <h1 class="information-key">{{ field.name }}:</h1>
+        <ul class="additional-block-list">
+          <li class="information-value" *ngFor="let item of field.items">
+            <span class="information-value list-content">{{ item }}</span>
+          </li>
         </ul>
       </div>
     </div>
-    <ng-container [ngTemplateOutlet]="backButton"></ng-container>
   </section>
 </div>
 

@@ -1,6 +1,5 @@
 import { Component, EventEmitter, Input, Output } from '@angular/core'
 import { SwapiResource, SwapiResourseField } from 'src/app/data/models/types'
-import { SwapiService } from 'src/app/services/swapi.service'
 
 @Component({
   selector: 'app-item',
@@ -10,9 +9,8 @@ import { SwapiService } from 'src/app/services/swapi.service'
 export class ItemComponent {
   @Input() item!: SwapiResource;
   @Input() index: number = 1;
+  @Input() id: string = '';
   @Output() onFavourite = new EventEmitter<SwapiResource>()
-
-  constructor(private swapiService: SwapiService) {}
 
   getTitle(): string {
     if (SwapiResourseField.Title in this.item) return this.item.title

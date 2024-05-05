@@ -10,7 +10,8 @@
         trackBy: itemTrackBy
       "
       [item]="item"
-      [index]="i + 1"
+      [index]="getItemIndex(i + 1)"
+      [id]="getItemId(item)"
       (onFavourite)="markFavouriteItem($event)"
     ></app-item>
   </ul>

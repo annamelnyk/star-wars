@@ -2,7 +2,6 @@
 
 .title {
   text-align: center;
-  position: relative;
 
   @include xl {
     text-align: left;
@@ -10,6 +9,7 @@
 
   &,
   &-active {
+    position: relative;
     color: $c-brown-light;
     font-size: 3rem;
     text-transform: uppercase;
@@ -21,10 +21,9 @@
 
   .star-icon {
     position: absolute;
-    right: -0.5rem;
-    top: 50%;
-    transform: translateY(-50%);
-    font-size: 3rem;
+    right: -10%;
+    top: 0;
+    font-size: 1.5rem;
     color: $c-brown-light;
   }
 }
