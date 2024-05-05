@@ -1,7 +1,7 @@
 @import "../../../styles";
 
 .details-container {
- // width: 50%;
+  // width: 50%;
   //max-width: 100%;
 }
 
@@ -70,4 +70,25 @@
     width: 100%;
     height: auto;
   }
+}
+
+.bottom-container {
+  display: flex;
+  align-items: flex-start;
+  gap: 15px;
+}
+
+.additional-block {
+  margin-bottom: 15px;
+}
+
+li.information-value::marker {
+  font-family: "FontAwesome";
+  content: "\f50c";
+  font-style: normal;
+  font-size: 1.6rem;
+}
+
+.list-content {
+  margin-left: 10px;
 }

@@ -22,12 +22,12 @@
       </div>
     </div>
     <div class="bottom-container" *ngIf="additionalFields.length">
-      <div class="additional-block" *ngFor="let field of additionalFields">
-        <h1>{{field.name}}</h1>
+      <div class="additional-block information" *ngFor="let field of additionalFields">
+        <h1 class="information-key">{{field.name}}</h1>
         <app-spinner *ngIf="isAdditionalInfoLoading"></app-spinner>
-        <div class="additional-block-list" *ngIf="!isAdditionalInfoLoading">
-          <h3 *ngFor="let item of field.items">{{item}}</h3>
-        </div>
+        <ul class="additional-block-list" *ngIf="!isAdditionalInfoLoading">
+          <li class="information-value" *ngFor="let item of field.items"><span class="information-value list-content">{{item}}</span></li>
+        </ul>
       </div>
     </div>
     <ng-container [ngTemplateOutlet]="backButton"></ng-container>
