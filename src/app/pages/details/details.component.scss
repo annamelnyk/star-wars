@@ -83,11 +83,37 @@
   margin-bottom: 15px;
 }
 
-li.information-value::marker {
-  font-family: "FontAwesome";
-  content: "\f50c";
-  font-style: normal;
-  font-size: 1.6rem;
+li.information-value {
+  &.residents::marker {
+    content: "\f50f";
+  }
+
+  &.films::marker {
+    content: "\f008";
+  }
+
+  &.planets::marker {
+    content: "\f0ac";
+  }
+
+  &.starships::marker {
+    content: "\f197";
+  }
+
+  &.vehicles::marker {
+    content: "\f50c";
+  }
+
+  &.species::marker {
+    content: "\f42b";
+  }
+
+  &::marker {
+    content: "\f753";
+    font-family: "FontAwesome";
+    font-style: normal;
+    font-size: 1.6rem;
+  }
 }
 
 .list-content {

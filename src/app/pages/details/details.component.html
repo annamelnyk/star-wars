@@ -37,7 +37,7 @@
       >
         <h1 class="information-key">{{ field.name }}:</h1>
         <ul class="additional-block-list">
-          <li class="information-value" *ngFor="let item of field.items">
+          <li class="information-value {{field.name}}" *ngFor="let item of field.items">
             <span class="information-value list-content">{{ item }}</span>
           </li>
         </ul>
