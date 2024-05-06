@@ -11,7 +11,8 @@ import { MainItemsListBlockComponent } from './components/main-items-list-block/
 import { PaginationComponent } from './components/pagination/pagination.component'
 import { TabsComponent } from './components/tabs/tabs.component'
 import { SearchPipe } from '../pipes/search.pipe'
-import { WidgetErrorComponent } from './widget-error/widget-error.component'
+import { WidgetErrorComponent } from './widget-error/widget-error.component';
+import { BackButtonComponent } from './back-button/back-button.component'
 
 @NgModule({
   declarations: [
@@ -24,6 +25,7 @@ import { WidgetErrorComponent } from './widget-error/widget-error.component'
     PaginationComponent,
     TabsComponent,
     WidgetErrorComponent,
+    BackButtonComponent,
   ],
   imports: [CommonModule, RouterModule, FormsModule, SearchPipe],
   exports: [
@@ -33,7 +35,8 @@ import { WidgetErrorComponent } from './widget-error/widget-error.component'
     SearchComponent,
     SpinnerComponent,
     MainItemsListBlockComponent,
-    WidgetErrorComponent
+    WidgetErrorComponent,
+    BackButtonComponent
   ],
 
 })

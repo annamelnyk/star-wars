@@ -6,7 +6,7 @@
       class="error"
       [error]="error"
     ></app-widget-error>
-    <ng-container [ngTemplateOutlet]="backButton"></ng-container>
+    <app-back-button></app-back-button>
   </ng-container>
   <section *ngIf="!isLoading && !isErrorOccured">
     <app-title
@@ -14,7 +14,7 @@
       [underlined]="title"
       [showFavourite]="isItemFavourite"
     ></app-title>
-    <ng-container [ngTemplateOutlet]="backButton"></ng-container>
+    <app-back-button></app-back-button>
     <div class="top-container">
       <div class="information">
         <p *ngFor="let item of itemKeys">
@@ -42,7 +42,9 @@
             *ngFor="let item of field.items"
           >
             <a [routerLink]="[item.localUrl]">
-              <span class="information-value list-content link">{{ item.name }}</span>
+              <span class="information-value list-content link">{{
+                item.name
+              }}</span>
             </a>
           </li>
         </ul>
@@ -50,10 +52,3 @@
     </div>
   </section>
 </div>
-
-<ng-template #backButton>
-  <button (click)="goBack()" class="back-button">
-    <i class="fa-solid fa-arrow-left back-button-icon"></i>
-    Back
-  </button>
-</ng-template>
