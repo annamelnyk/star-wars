@@ -31,11 +31,12 @@ $toggle: calc(($size + $margin * 2) * 1.5);
     font-size: 2rem;
     font-weight: 700;
     text-decoration: none;
-    margin-right: 0.3rem;
-    margin-left: 2rem;
+    margin: 0 0.5rem;
 
     @include xl {
       font-size: 2rem;
+      margin-right: 0.3rem;
+      margin-left: 2rem;
     }
 
     &:hover,
@@ -47,7 +48,7 @@ $toggle: calc(($size + $margin * 2) * 1.5);
     &-icon {
       font-size: 2rem;
       font-weight: 700;
-      margin-right: .5rem;
+      margin-right: 0.5rem;
     }
   }
 
@@ -63,7 +64,9 @@ $toggle: calc(($size + $margin * 2) * 1.5);
       transition-delay: 0.4s;
 
       .header-link {
-        margin-left: 0;
+        @include xl {
+          margin-left: 0;
+        }
       }
     }
     &:nth-of-type(2) {
@@ -79,7 +82,9 @@ $toggle: calc(($size + $margin * 2) * 1.5);
       transition-delay: 0.8s;
 
       .header-link {
-        margin-right: 30px;
+        @include xl {
+          margin-right: 30px;
+        }
       }
     }
 
@@ -156,6 +161,7 @@ $toggle: calc(($size + $margin * 2) * 1.5);
       }
     }
     &-toggle {
+      display: none;
       position: relative;
       height: calc($margin * 3 + $height * 2);
       width: calc($margin * 2 + $size);
@@ -193,5 +199,9 @@ $toggle: calc(($size + $margin * 2) * 1.5);
         top: 0;
       }
     }
+  }
+
+  @include xl {
+    display: block;
   }
 }
