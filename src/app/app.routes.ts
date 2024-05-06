@@ -48,7 +48,12 @@ export const APP_ROUTES: Routes = [
       import('./pages/spaceships/spaceships.module').then((m) => m.SpaceshipsModule),
   },
   {
-    path: 'spaceships/:id',
+    path: 'starships/:id',
+    loadChildren: () =>
+      import('./pages/details/details.module').then((m) => m.DetailsModule),
+  },
+  {
+    path: 'species/:id',
     loadChildren: () =>
       import('./pages/details/details.module').then((m) => m.DetailsModule),
   },

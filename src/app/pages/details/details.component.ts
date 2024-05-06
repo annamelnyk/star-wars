@@ -50,14 +50,11 @@ export class DetailsComponent implements OnInit {
           this.isLoading = false
         },
         error: (err: HttpErrorResponse) => {
-          console.log('ERRRRRRRRR')
           this.isLoading = false
           this.isErrorOccured = true
           this.error = err
         }
       })
-
-    console.log(this.item)
   }
 
   getImageSrc(id: string): string {
@@ -69,7 +66,6 @@ export class DetailsComponent implements OnInit {
   }
 
   formatItem(item: any) {
-    console.log('ITEM: ', item)
     for (let key in item) {
       if (this.checkIfDataShouldBeOmitted(key) || this.checkIfValueContainsUrl(item[key]) || (Array.isArray(item[key]) && !item[key].length)) {
         continue
@@ -102,16 +98,14 @@ export class DetailsComponent implements OnInit {
       this.swapiService.getItemByUrl(url)
         .pipe(takeUntilDestroyed(this.destroyRefExtra))
         .subscribe((data: any) => {
-          console.log('additionalFields ', this.additionalFields)
           this.isAdditionalInfoLoading = true
 
           const additionalFieldItem: any = {}
           additionalFieldItem.localUrl = `/${data.url.split('/').filter((v: string) => v).slice(-2).join('/')}`
+
           if (additionalFieldItem.localUrl.includes('people')) {
-            console.log('LOCALURL  INCLUDES PEOPLE', additionalFieldItem.localUrl)
             additionalFieldItem.localUrl = additionalFieldItem.localUrl.replace('people', 'characters')
           }
-          console.log('DATAAAAAA URLLL', data)
 
           if ('name' in data) {
             additionalFieldItem.name = data.name
@@ -127,8 +121,6 @@ export class DetailsComponent implements OnInit {
             }
           })
 
-
-          console.log('additipnalFielsds ', this.additionalFields)
           this.isAdditionalInfoLoading = false
         })
     })
@@ -145,7 +137,6 @@ export class DetailsComponent implements OnInit {
   }
 
   checkIfDataShouldBeOmitted(field: string): boolean {
-    console.log('FIELDDD ', field)
     return field === 'edited' || field === 'created'
   }
 
