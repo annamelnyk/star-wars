@@ -52,6 +52,11 @@ export const APP_ROUTES: Routes = [
       import('./pages/details/details.module').then((m) => m.DetailsModule),
   },
   {
+    path: 'starships/:id',
+    loadChildren: () =>
+      import('./pages/details/details.module').then((m) => m.DetailsModule),
+  },
+  {
     path: 'species/:id',
     loadChildren: () =>
       import('./pages/details/details.module').then((m) => m.DetailsModule),
