@@ -47,7 +47,7 @@ export const APP_ROUTES: Routes = [
       import('./pages/spaceships/spaceships.module').then((m) => m.SpaceshipsModule),
   },
   {
-    path: 'starships/:id',
+    path: 'spaceships/:id',
     loadChildren: () =>
       import('./pages/details/details.module').then((m) => m.DetailsModule),
   },
@@ -56,6 +56,11 @@ export const APP_ROUTES: Routes = [
     loadChildren: () =>
       import('./pages/details/details.module').then((m) => m.DetailsModule),
   },
+  {
+    path: 'not-found',
+    loadChildren: () =>
+      import('./pages/not-found/not-found.module').then((m) => m.NotFoundModule),
+  },
   { path: '', redirectTo: 'characters', pathMatch: 'full' },
-  { path: '**', redirectTo: '/', pathMatch: 'full' },
+  { path: '**', redirectTo: 'not-found', pathMatch: 'full' },
 ];
