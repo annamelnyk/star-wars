@@ -118,4 +118,11 @@ li.information-value {
 
 .list-content {
   margin-left: 10px;
+  cursor: default;
+  color: $c-red;
+
+  &.link {
+    cursor: pointer;
+    color: $bg-yellow-2;
+  }
 }

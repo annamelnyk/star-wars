@@ -23,7 +23,7 @@
         </p>
       </div>
       <div class="top-photo-container" *ngIf="imageSrc && showImage">
-        <img [src]="imageSrc" [alt]="getTitle()" (error)="hideImage()"/>
+        <img [src]="imageSrc" [alt]="getTitle()" (error)="hideImage()" />
       </div>
     </div>
     <app-spinner *ngIf="isAdditionalInfoLoading"></app-spinner>
@@ -37,8 +37,14 @@
       >
         <h1 class="information-key">{{ field.name }}:</h1>
         <ul class="additional-block-list">
-          <li class="information-value {{field.name}}" *ngFor="let item of field.items">
-            <span class="information-value list-content">{{ item }}</span>
+          <li
+            class="information-value {{ field.name }}"
+            *ngFor="let item of field.items"
+          >
+            <a [routerLink]="[item.localUrl]" *ngIf="item.localUrl">
+              <span class="information-value list-content link">{{ item.name }}</span>
+            </a>
+            <span class="information-value list-content" *ngIf="!item.localUrl">{{ item.name }}</span>
           </li>
         </ul>
       </div>

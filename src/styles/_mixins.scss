@@ -69,6 +69,7 @@ $xxl: 1900px;
   position: relative;
   display: flex;
   align-items: baseline;
+  max-width: 500px;
 
   &::before {
     content: "";

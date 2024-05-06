@@ -22,7 +22,7 @@ export class DetailsComponent implements OnInit {
   isErrorOccured = false
   error: Error | null = null
   imageSrc = ''
-  additionalFields: {name: string, items: string[]}[] = []
+  additionalFields: { name: string, items: { name: string, localUrl?: string }[] }[] = []
   isAdditionalInfoLoading = false
   showImage = true
 
@@ -35,6 +35,7 @@ export class DetailsComponent implements OnInit {
     this.collectionName = urlSymbols[0] || urlSymbols[1]
     let collectionInApi = this.collectionName
     if (collectionInApi === 'characters') collectionInApi = 'people'
+    if (collectionInApi === 'spaceships') collectionInApi = 'starships'
 
     this.imageSrc = this.getImageSrc(itemId)
 
@@ -70,12 +71,12 @@ export class DetailsComponent implements OnInit {
   formatItem(item: any) {
     console.log('ITEM: ', item)
     for (let key in item) {
-      if (this.checkIfDataShouldBeOmitted(key) || this.checkIfDataShouldBeOmitted(item[key]) || (Array.isArray(item[key]) && !item[key].length)) {
+      if (this.checkIfDataShouldBeOmitted(key) || this.checkIfValueContainsUrl(item[key]) || (Array.isArray(item[key]) && !item[key].length)) {
         continue
       }
 
       if (Array.isArray(item[key]) && item[key].length) {
-        this.additionalFields.push({name: key, items: []})
+        this.additionalFields.push({ name: key, items: [] })
         this.renderAdditionalInfoBlocks(key, item[key])
         continue
       }
@@ -99,26 +100,37 @@ export class DetailsComponent implements OnInit {
   renderAdditionalInfoBlocks(collectionName: string, urls: string[]) {
     urls.forEach(url => {
       this.swapiService.getItemByUrl(url)
-      .pipe(takeUntilDestroyed(this.destroyRefExtra))
-      .subscribe((data: any) => {
-        this.isAdditionalInfoLoading = true
-        this.additionalFields.forEach(f => {
-          console.log('DATAAAAAA ', data)
-          if (collectionName === f.name) {
+        .pipe(takeUntilDestroyed(this.destroyRefExtra))
+        .subscribe((data: any) => {
+          console.log('additionalFields ', this.additionalFields)
+          this.isAdditionalInfoLoading = true
 
-            if ('name' in data) {
-              f.items.push(data.name)
-              return
-            }
-
-            if ('title' in data) {
-              f.items.push(data.title)
-            }
+          const additionalFieldItem: any = {}
+          additionalFieldItem.localUrl = `/${data.url.split('/').filter((v: string) => v).slice(-2).join('/')}`
+          if (additionalFieldItem.localUrl.includes('people')) {
+            console.log('LOCALURL  INCLUDES PEOPLE', additionalFieldItem.localUrl)
+            additionalFieldItem.localUrl = additionalFieldItem.localUrl.replace('people', 'characters')
           }
+          console.log('DATAAAAAA URLLL', data)
+
+          if ('name' in data) {
+            additionalFieldItem.name = data.name
+          }
+
+          if ('title' in data) {
+            additionalFieldItem.name = data.title
+          }
+
+          this.additionalFields.forEach(i => {
+            if (i.name === collectionName) {
+              i.items.push(additionalFieldItem)
+            }
+          })
+
+
+          console.log('additipnalFielsds ', this.additionalFields)
+          this.isAdditionalInfoLoading = false
         })
-        console.log('additipnalFielsds ', this.additionalFields)
-        this.isAdditionalInfoLoading = false
-      })
     })
   }
 
@@ -133,7 +145,12 @@ export class DetailsComponent implements OnInit {
   }
 
   checkIfDataShouldBeOmitted(field: string): boolean {
-    return field === 'edited' || field === 'created' || field.includes('http')
+    console.log('FIELDDD ', field)
+    return field === 'edited' || field === 'created'
+  }
+
+  checkIfValueContainsUrl(field: any): boolean {
+    return (typeof field === 'string') && field.includes('http')
   }
 
   goBack() {
