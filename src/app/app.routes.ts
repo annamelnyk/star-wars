@@ -1,7 +1,6 @@
 import { Routes } from '@angular/router';
 
 export const APP_ROUTES: Routes = [
-  { path: '', redirectTo: 'characters', pathMatch: 'full' },
   {
     path: 'characters',
     loadChildren: () =>
@@ -57,5 +56,6 @@ export const APP_ROUTES: Routes = [
     loadChildren: () =>
       import('./pages/details/details.module').then((m) => m.DetailsModule),
   },
+  { path: '', redirectTo: 'characters', pathMatch: 'full' },
   { path: '**', redirectTo: '/', pathMatch: 'full' },
 ];

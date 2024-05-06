@@ -1,10 +1,5 @@
 @import "../../../styles";
 
-.details-container {
-  // width: 50%;
-  //max-width: 100%;
-}
-
 .information {
   @include informationBlock;
   flex-direction: column;
@@ -60,7 +55,8 @@
 }
 
 .top-photo-container {
-  width: 250px;
+  min-width: 250px;
+  width: auto;
   height: 100%;
   border: 2px solid $c-red;
   border-radius: $border-radius;
@@ -76,6 +72,7 @@
 .bottom-container {
   display: flex;
   align-items: flex-start;
+  flex-wrap: wrap;
   gap: 15px;
 }
 
@@ -116,13 +113,8 @@ li.information-value {
   }
 }
 
-.list-content {
+.list-content.link {
   margin-left: 10px;
-  cursor: default;
-  color: $c-red;
-
-  &.link {
-    cursor: pointer;
-    color: $bg-yellow-2;
-  }
+  cursor: pointer;
+  color: $bg-yellow-2;
 }

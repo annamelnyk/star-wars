@@ -1,8 +1,9 @@
 import { HttpErrorResponse } from '@angular/common/http'
+import { Location } from '@angular/common'
 import { Component, inject, OnInit, DestroyRef } from '@angular/core'
 import { takeUntilDestroyed } from '@angular/core/rxjs-interop'
 import { ActivatedRoute, Router } from '@angular/router'
-import { SwapiInitialResource, SwapiResourseField } from 'src/app/data/models/types'
+
 import { SwapiService } from 'src/app/services/swapi.service'
 
 @Component({
@@ -19,26 +20,33 @@ export class DetailsComponent implements OnInit {
   collectionName = ''
   title: string = ''
   isLoading = false
+  isAdditionalInfoLoading = false
   isErrorOccured = false
   error: Error | null = null
   imageSrc = ''
   additionalFields: { name: string, items: { name: string, localUrl?: string }[] }[] = []
-  isAdditionalInfoLoading = false
   showImage = true
 
-  constructor(private activatedRoute: ActivatedRoute, private swapiService: SwapiService, private router: Router) { }
+  constructor(
+    private activatedRoute: ActivatedRoute,
+    private swapiService: SwapiService,
+    private router: Router,
+    private location: Location
+  ) { }
 
   ngOnInit(): void {
     this.isLoading = true
+    this.isAdditionalInfoLoading = true
+
     const itemId = this.activatedRoute.snapshot.params['id']
     const urlSymbols = this.router.url.split('/')
     this.collectionName = urlSymbols[0] || urlSymbols[1]
     let collectionInApi = this.collectionName
+
     if (collectionInApi === 'characters') collectionInApi = 'people'
     if (collectionInApi === 'spaceships') collectionInApi = 'starships'
 
     this.imageSrc = this.getImageSrc(itemId)
-
     this.swapiService
       .getItemById(collectionInApi, Number(itemId))
       .pipe(takeUntilDestroyed(this.destroyRef))
@@ -98,8 +106,6 @@ export class DetailsComponent implements OnInit {
       this.swapiService.getItemByUrl(url)
         .pipe(takeUntilDestroyed(this.destroyRefExtra))
         .subscribe((data: any) => {
-          this.isAdditionalInfoLoading = true
-
           const additionalFieldItem: any = {}
           additionalFieldItem.localUrl = `/${data.url.split('/').filter((v: string) => v).slice(-2).join('/')}`
 
@@ -145,7 +151,8 @@ export class DetailsComponent implements OnInit {
   }
 
   goBack() {
-    this.router.navigate(['../'], { relativeTo: this.activatedRoute })
+    //this.router.navigate(['../'], { relativeTo: this.activatedRoute })
+    this.location.back()
   }
 
   hideImage() {

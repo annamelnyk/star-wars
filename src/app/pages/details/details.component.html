@@ -41,10 +41,9 @@
             class="information-value {{ field.name }}"
             *ngFor="let item of field.items"
           >
-            <a [routerLink]="[item.localUrl]" *ngIf="item.localUrl">
+            <a [routerLink]="[item.localUrl]">
               <span class="information-value list-content link">{{ item.name }}</span>
             </a>
-            <span class="information-value list-content" *ngIf="!item.localUrl">{{ item.name }}</span>
           </li>
         </ul>
       </div>

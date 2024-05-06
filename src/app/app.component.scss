@@ -3,9 +3,7 @@
 .sw {
   &-container {
     min-height: 100vh;
-    background-image:
-    // url("../assets/images/SW-main.jpg"),
-      linear-gradient($bg-yellow-1, $bg-yellow-2);
+    background-image: linear-gradient($bg-yellow-1, $bg-yellow-2);
     background-repeat: no-repeat;
     background-position: -4% bottom;
     background-blend-mode: luminosity;
@@ -34,7 +32,7 @@
       overflow: hidden;
 
       &-container {
-        display:  none;
+        display: none;
 
         @include xl {
           display: block;
@@ -45,6 +43,7 @@
 
     &-list-container {
       max-height: 100%;
+      width: 63%;
     }
   }
 }
