@@ -3,6 +3,11 @@
 .search {
   &-container {
     width: $width-item;
+    margin-bottom: 2rem;
+
+    @include lg {
+      margin-bottom: 0;
+    }
   }
 
   &-input {

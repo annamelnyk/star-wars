@@ -198,10 +198,10 @@ $toggle: calc(($size + $margin * 2) * 1.5);
         transform: rotate(225deg);
         top: 0;
       }
-    }
-  }
 
-  @include xl {
-    display: block;
+      @include xl {
+        display: block;
+      }
+    }
   }
 }
