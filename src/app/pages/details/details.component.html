@@ -8,7 +8,7 @@
     ></app-widget-error>
     <app-back-button></app-back-button>
   </ng-container>
-  <section *ngIf="!isLoading && !isErrorOccured">
+  <section class="details-section" *ngIf="!isLoading && !isErrorOccured">
     <app-title
       [category]="collectionName"
       [underlined]="title"
@@ -25,8 +25,7 @@
       <div class="top-photo-container" *ngIf="imageSrc && showImage">
         <img [src]="imageSrc" [alt]="getTitle()" (error)="hideImage()" />
       </div>
-    </div>
-    <app-spinner *ngIf="isAdditionalInfoLoading"></app-spinner>
+      <app-spinner *ngIf="isAdditionalInfoLoading"></app-spinner>
     <div
       class="bottom-container"
       *ngIf="additionalFields.length && !isAdditionalInfoLoading"
@@ -49,6 +48,7 @@
           </li>
         </ul>
       </div>
+    </div>
     </div>
   </section>
 </div>

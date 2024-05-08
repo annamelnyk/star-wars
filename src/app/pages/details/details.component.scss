@@ -1,8 +1,24 @@
 @import "../../../styles";
 
+$w-information-block-lg: 350px;
+$w-information-block-md: 250px;
+
+.details-section {
+  padding: 0 50px;
+
+  @include lg {
+    padding: 0;
+  }
+}
+
 .information {
   @include informationBlock;
   flex-direction: column;
+  width: $w-information-block-md;
+
+  @include lg {
+    width: $w-information-block-lg;
+  }
 
   &-key,
   &-value {
@@ -30,19 +46,29 @@
 
 .top-container {
   display: flex;
-  justify-content: space-between;
+  flex-wrap: wrap;
   gap: 25px;
   margin: 30px 0;
+  //justify-content: center;
+
+  @include lg {
+    //justify-content: flex-start;
+  }
 }
 
 .top-photo-container {
-  min-width: 250px;
+  max-width: 200px;
   width: auto;
   height: 100%;
   border: 2px solid $c-red;
   border-radius: $border-radius;
   box-shadow: 10px 10px 15px rgba(59, 38, 38, 0.25);
   background-color: $c-brown-light;
+
+  @include lg {
+    min-width: $w-information-block-md;
+    max-width: auto;
+  }
 
   img {
     width: 100%;
@@ -52,13 +78,16 @@
 
 .bottom-container {
   display: flex;
-  align-items: flex-start;
   flex-wrap: wrap;
   gap: 15px;
 }
 
 .additional-block {
-  margin-bottom: 15px;
+  width: $w-information-block-md;
+
+  @include lg {
+  width: $w-information-block-lg;
+  }
 }
 
 li.information-value {
