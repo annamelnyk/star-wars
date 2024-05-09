@@ -18,7 +18,7 @@
           [ngClass]="isToggleClose ? 'close' : ''"
         ></div>
       </div>
-      <span [ngClass]="isLinkHidden ? 'hidden' : ''">
+      <div class="header-nav-item" [ngClass]="isLinkHidden ? 'hidden' : ''">
         <a
           routerLinkActive="active"
           [routerLink]="[navRoutes.CHARACTERS]"
@@ -27,8 +27,8 @@
           <i class="fa-brands fa-mandalorian header-link-icon"></i>
           Characters
         </a>
-      </span>
-      <span [ngClass]="isLinkHidden ? 'hidden' : ''">
+      </div>
+      <div class="header-nav-item" [ngClass]="isLinkHidden ? 'hidden' : ''">
         <a
           routerLinkActive="active"
           [routerLink]="[navRoutes.FILMS]"
@@ -37,8 +37,8 @@
           <i class="fa-solid fa-film header-link-icon"></i>
           Films
         </a>
-      </span>
-      <span [ngClass]="isLinkHidden ? 'hidden' : ''">
+      </div>
+      <div class="header-nav-item" [ngClass]="isLinkHidden ? 'hidden' : ''">
         <a
           routerLinkActive="active"
           [routerLink]="[navRoutes.PLANETS]"
@@ -47,8 +47,8 @@
           <i class="fa-solid fa-globe header-link-icon"></i>
           Planets
         </a>
-      </span>
-      <span [ngClass]="isLinkHidden ? 'hidden' : ''">
+      </div>
+      <div class="header-nav-item" [ngClass]="isLinkHidden ? 'hidden' : ''">
         <a
           routerLinkActive="active"
           [routerLink]="[navRoutes.VEHICLES]"
@@ -57,8 +57,8 @@
           <i class="fa-brands fa-galactic-republic header-link-icon"></i>
           Vehicles
         </a>
-      </span>
-      <span [ngClass]="isLinkHidden ? 'hidden' : ''">
+      </div>
+      <div class="header-nav-item" [ngClass]="isLinkHidden ? 'hidden' : ''">
         <a
           routerLinkActive="active"
           [routerLink]="[navRoutes.SPACESHIPS]"
@@ -67,7 +67,7 @@
           <i class="fa-brands fa-galactic-senate header-link-icon"></i>
           Spaceships
         </a>
-      </span>
+      </div>
     </nav>
   </div>
 </header>

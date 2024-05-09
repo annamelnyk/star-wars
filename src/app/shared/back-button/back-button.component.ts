@@ -11,7 +11,6 @@ export class BackButtonComponent {
   constructor(private location: Location) {}
 
   goBack() {
-    //this.router.navigate(['../'], { relativeTo: this.activatedRoute })
     this.location.back()
   }
 }
