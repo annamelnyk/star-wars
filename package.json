@@ -6,7 +6,9 @@
     "start": "ng serve",
     "build": "ng build",
     "watch": "ng build --watch --configuration development",
-    "test": "ng test"
+    "test": "ng test",
+    "deploy:prebuild":"ng build --configuration production --base-href 'https://annamelnyk.github.io/star-wars/'",
+    "deploy":"npx angular-cli-ghpages --dir=dist/star-wars"
   },
   "private": true,
   "dependencies": {
