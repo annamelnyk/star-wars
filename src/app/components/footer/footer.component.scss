@@ -1,11 +1,7 @@
 @import "../../../styles";
 
 .footer {
-  background: $c-red;
   padding: 1rem;
-  position: fixed;
-  left: 0;
-  bottom: -8rem;
   width: 100%;
   text-align: center;
   font-size: 1.5rem;
@@ -17,7 +13,7 @@
   }
 
   &-link {
-    color: $bg-yellow-1;
+    color: $c-red;
     font-weight: 700;
     font-size: inherit;
   }
