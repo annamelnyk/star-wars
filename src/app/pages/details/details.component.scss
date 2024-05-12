@@ -1,7 +1,8 @@
 @import "../../../styles";
 
 $w-information-block-lg: 350px;
-$w-information-block-md: 250px;
+$w-information-block-md: 240px;
+$w-information-block-sm: 230px;
 
 .details-section {
   padding: 0 25px;
@@ -14,7 +15,15 @@ $w-information-block-md: 250px;
 .information {
   @include informationBlock;
   flex-direction: column;
-  width: $w-information-block-md;
+  width: 100%;
+
+  @include sm {
+    width: $w-information-block-sm;
+  }
+
+  @include md {
+    width: $w-information-block-md;
+  }
 
   @include lg {
     width: $w-information-block-lg;
@@ -52,7 +61,7 @@ $w-information-block-md: 250px;
 }
 
 .top-photo-container {
-  max-width: 200px;
+  //max-width: 200px;
   width: auto;
   height: 100%;
   border: 2px solid $c-red;
@@ -60,8 +69,16 @@ $w-information-block-md: 250px;
   box-shadow: 10px 10px 15px rgba(59, 38, 38, 0.25);
   background-color: $c-brown-light;
 
-  @include lg {
+  @include sm {
+    min-width: $w-information-block-sm;
+  }
+
+  @include md {
     min-width: $w-information-block-md;
+  }
+
+  @include lg {
+    min-width: $w-information-block-lg;
     max-width: auto;
   }
 
@@ -78,10 +95,18 @@ $w-information-block-md: 250px;
 }
 
 .additional-block {
-  width: $w-information-block-md;
+  width: 100%;
+
+  @include sm {
+    width: $w-information-block-sm;
+  }
+
+  @include md {
+    width: $w-information-block-md;
+  }
 
   @include lg {
-  width: $w-information-block-lg;
+    width: $w-information-block-lg;
   }
 }
 

@@ -80,12 +80,6 @@ $toggle: calc(($size + $margin * 2) * 1.5);
     }
     &:nth-of-type(5) {
       transition-delay: 0.8s;
-
-      .header-link {
-        @include xl {
-          margin-right: 30px;
-        }
-      }
     }
 
     &.hidden {

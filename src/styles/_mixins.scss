@@ -53,7 +53,6 @@ $xxl: 1900px;
   border-bottom: $width groove $c-red;
 }
 
-
 @mixin regularText() {
   font-size: 1.6rem;
   font-weight: 700;
@@ -82,5 +81,4 @@ $xxl: 1900px;
     @include transition(1s);
     z-index: 0;
   }
-
 }
