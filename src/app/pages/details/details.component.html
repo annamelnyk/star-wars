@@ -12,43 +12,46 @@
     <app-title
       [category]="collectionName"
       [underlined]="title"
+      [positionCenter]="true"
       [showFavourite]="isItemFavourite"
     ></app-title>
     <app-back-button></app-back-button>
     <div class="top-container">
-      <div class="information">
+      <div class="top-photo-container" *ngIf="imageSrc && showImage">
+        <img [src]="imageSrc" [alt]="getTitle()" (error)="hideImage()" />
+      </div>
+      <div class="information main-info">
         <p *ngFor="let item of itemKeys">
           <span class="information-key">{{ item.key }}: </span>
           <span class="information-value">{{ item.value }}</span>
         </p>
       </div>
-      <div class="top-photo-container" *ngIf="imageSrc && showImage">
-        <img [src]="imageSrc" [alt]="getTitle()" (error)="hideImage()" />
-      </div>
-      <app-spinner *ngIf="isAdditionalInfoLoading"></app-spinner>
-    <div
-      class="bottom-container"
-      *ngIf="additionalFields.length && !isAdditionalInfoLoading"
-    >
-      <div
-        class="additional-block information"
-        *ngFor="let field of additionalFields"
-      >
-        <h1 class="information-key">{{ field.name }}:</h1>
-        <ul class="additional-block-list">
-          <li
-            class="information-value {{ field.name }}"
-            *ngFor="let item of field.items"
-          >
-            <a [routerLink]="[item.localUrl]">
-              <span class="information-value list-content link">{{
-                item.name
-              }}</span>
-            </a>
-          </li>
-        </ul>
-      </div>
     </div>
+    <div class="bottom-container">
+      <app-spinner *ngIf="isAdditionalInfoLoading"></app-spinner>
+      <div
+        class="bottom-container"
+        *ngIf="additionalFields.length && !isAdditionalInfoLoading"
+      >
+        <div
+          class="additional-block information"
+          *ngFor="let field of additionalFields"
+        >
+          <h1 class="information-key">{{ field.name }}:</h1>
+          <ul class="additional-block-list">
+            <li
+              class="information-value {{ field.name }}"
+              *ngFor="let item of field.items"
+            >
+              <a [routerLink]="[item.localUrl]">
+                <span class="information-value list-content link">{{
+                  item.name
+                }}</span>
+              </a>
+            </li>
+          </ul>
+        </div>
+      </div>
     </div>
   </section>
 </div>

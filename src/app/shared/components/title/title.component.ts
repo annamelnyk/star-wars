@@ -9,5 +9,5 @@ export class TitleComponent {
   @Input() category: string = '';
   @Input() underlined: string = '';
   @Input() showFavourite?: boolean = false;
-
+  @Input() positionCenter?: boolean = false;
 }

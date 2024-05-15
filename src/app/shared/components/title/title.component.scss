@@ -7,6 +7,12 @@
     text-align: left;
   }
 
+  &.center {
+    @include xl {
+      text-align: center;
+    }
+  }
+
   &,
   &-active {
     color: $c-brown-light;

@@ -1,69 +1,12 @@
 @import "../styles";
 
-.sw {
-  &-container {
-    min-height: 100vh;
-    background-image: linear-gradient($bg-yellow-1, $bg-yellow-2);
-    background-repeat: no-repeat;
-    background-position: -4% bottom;
-    background-blend-mode: luminosity;
-    backdrop-filter: sepia(90%);
-    background-size: contain;
-    overflow-x: hidden;
-  }
-
-  &-main {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
-    padding: 0 15px;
-
-    @include sm {
-      padding: 0 25px;
-    }
-
-    @include md {
-      padding: 0 60px;
-      margin: auto;
-      width: 80%;
-    }
-
-    @include xl {
-      width: 100%;
-      padding: 0;
-      flex-direction: row;
-      justify-content: flex-start;
-      align-items: flex-start;
-      flex-wrap: wrap;
-    }
-
-    &-img {
-      position: relative;
-      z-index: 0;
-      margin-left: -5rem;
-      margin-top: -4rem;
-      width: 100%;
-      height: auto;
-      overflow: hidden;
-      border-bottom: 15px solid $c-brown-light;
-
-      &-container {
-        display: none;
-
-        @include xl {
-          display: block;
-          width: $w-bg-container;
-        }
-      }
-    }
-
-    &-list-container {
-      max-height: 100%;
-
-      @include xl {
-        max-width: 63%;
-      }
-    }
-  }
+.sw-container {
+  min-height: 100vh;
+  background-image: linear-gradient($bg-yellow-1, $bg-yellow-2);
+  background-repeat: no-repeat;
+  background-position: -4% bottom;
+  background-blend-mode: luminosity;
+  backdrop-filter: sepia(90%);
+  background-size: contain;
+  overflow-x: hidden;
 }

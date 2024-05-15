@@ -1,11 +1,18 @@
 @import "../../../styles";
 
-$w-information-block-lg: 350px;
+$w-information-block-lg: 320px;
 $w-information-block-md: 240px;
 $w-information-block-sm: 230px;
 
+.details-container {
+  max-width: 1140px;
+  margin: auto;
+  padding: 0 15px;
+}
+
 .details-section {
   padding: 0 25px;
+  width: 100%;
 
   @include lg {
     padding: 0;
@@ -16,6 +23,7 @@ $w-information-block-sm: 230px;
   @include informationBlock;
   flex-direction: column;
   width: 100%;
+  max-width: 100%;
 
   @include sm {
     width: $w-information-block-sm;
@@ -27,6 +35,10 @@ $w-information-block-sm: 230px;
 
   @include lg {
     width: $w-information-block-lg;
+  }
+
+  &.main-info {
+    width: 100%;
   }
 
   &-key,
@@ -55,13 +67,11 @@ $w-information-block-sm: 230px;
 
 .top-container {
   display: flex;
-  flex-wrap: wrap;
   gap: 25px;
   margin: 30px 0;
 }
 
 .top-photo-container {
-  //max-width: 200px;
   width: auto;
   height: 100%;
   border: 2px solid $c-red;
@@ -79,7 +89,6 @@ $w-information-block-sm: 230px;
 
   @include lg {
     min-width: $w-information-block-lg;
-    max-width: auto;
   }
 
   img {

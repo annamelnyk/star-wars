@@ -1,18 +1,32 @@
-<app-toolbar [pagesAmount]="pagesAmount$" (activePage)="displayActivePageData($event)" (activeTab)="showFilteredByTabData($event)" (searchInputHandler)="getSearchValue($event)"></app-toolbar>
-<app-spinner *ngIf="isLoading; else listItems"></app-spinner>
-<ng-template #listItems>
-  <h2 *ngIf="!collectionToRender?.length" class="empty-list-message">There is no items</h2>
-  <ul class="list">
-    <app-item
-      *ngFor="
-        let item of collectionToRender | search : searchQuery;
-        let i = index;
-        trackBy: itemTrackBy
-      "
-      [item]="item"
-      [index]="getItemIndex(i + 1)"
-      [id]="getItemId(item)"
-      (onFavourite)="markFavouriteItem($event)"
-    ></app-item>
-  </ul>
-</ng-template>
+<main class="sw-main">
+  <div class="sw-main-img-container">
+    <img src="assets/images/SW-main.jpg" alt="" class="sw-main-img" />
+  </div>
+  <div class="sw-main-list-container">
+    <app-toolbar
+      [pagesAmount]="pagesAmount$"
+      (activePage)="displayActivePageData($event)"
+      (activeTab)="showFilteredByTabData($event)"
+      (searchInputHandler)="getSearchValue($event)"
+    ></app-toolbar>
+    <app-spinner *ngIf="isLoading; else listItems"></app-spinner>
+    <ng-template #listItems>
+      <h2 *ngIf="!collectionToRender?.length" class="empty-list-message">
+        There is no items
+      </h2>
+      <ul class="list">
+        <app-item
+          *ngFor="
+            let item of collectionToRender | search : searchQuery;
+            let i = index;
+            trackBy: itemTrackBy
+          "
+          [item]="item"
+          [index]="getItemIndex(i + 1)"
+          [id]="getItemId(item)"
+          (onFavourite)="markFavouriteItem($event)"
+        ></app-item>
+      </ul>
+    </ng-template>
+  </div>
+</main>

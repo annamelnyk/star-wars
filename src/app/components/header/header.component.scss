@@ -22,6 +22,10 @@ $toggle: calc(($size + $margin * 2) * 1.5);
     margin-bottom: 0;
   }
 
+  .logo-link {
+    margin-right: 50px;
+  }
+
   &-logo {
     width: 135px;
   }
