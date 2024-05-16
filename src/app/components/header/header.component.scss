@@ -23,7 +23,9 @@ $toggle: calc(($size + $margin * 2) * 1.5);
   }
 
   .logo-link {
-    margin-right: 50px;
+    @include md {
+      margin-right: 50px;
+    }
   }
 
   &-logo {

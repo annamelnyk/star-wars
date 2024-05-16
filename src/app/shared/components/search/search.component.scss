@@ -2,11 +2,16 @@
 
 .search {
   &-container {
-    width: $width-item;
-    margin-bottom: 2rem;
+    width: 100%;
+    max-width: $width-item;
+    margin: 0 auto 2rem;
 
     @include lg {
       margin-bottom: 0;
+    }
+
+    @include xl {
+      min-width: $width-item;
     }
   }
 

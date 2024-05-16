@@ -8,14 +8,18 @@
   }
 
   &-middle {
-    min-width: 820px;
     display: flex;
-    justify-content: space-between;
-    align-items: center;
+    justify-content: center;
     flex-direction: column;
 
-    @include lg {
+    @include md {
+      //align-items: center;
       flex-direction: row;
+      justify-content: space-between;
+    }
+
+    @include xl {
+      min-width: 820px;
     }
   }
 
