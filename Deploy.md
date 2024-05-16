@@ -6,3 +6,6 @@
 3. Run build `ng build --configuration production --base-href "https://[github-username].github.io/[repo-name]/"`
 4. Deploy app `npx angular-cli-ghpages --dir=dist/[project-name]`
 
+
+ng build --configuration production --base-href "https://annamelnyk.github.io/star-wars/"
+npx angular-cli-ghpages --dir=dist/star-wars
