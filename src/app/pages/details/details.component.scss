@@ -1,6 +1,6 @@
 @import "../../../styles";
 
-$w-information-block-lg: 320px;
+$w-information-block-lg: 360px;
 $w-information-block-md: 240px;
 $w-information-block-sm: 230px;
 
@@ -13,6 +13,7 @@ $w-information-block-sm: 230px;
 .details-section {
   padding: 0 25px;
   width: 100%;
+  text-align: center;
 
   @include lg {
     padding: 0;
@@ -69,6 +70,7 @@ $w-information-block-sm: 230px;
   display: flex;
   gap: 25px;
   margin: 30px 0;
+  text-align: left;
 }
 
 .top-photo-container {
@@ -101,6 +103,7 @@ $w-information-block-sm: 230px;
   display: flex;
   flex-wrap: wrap;
   gap: 15px;
+  text-align: left;
 }
 
 .additional-block {

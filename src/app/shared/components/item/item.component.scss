@@ -2,7 +2,8 @@
 
 .item {
   @include informationBlock();
-  width: $width-item;
+  width: 100%;
+  max-width: $width-item;
 
   &-index {
     width: 35px;
