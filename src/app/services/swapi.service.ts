@@ -1,5 +1,4 @@
 import { Injectable } from '@angular/core'
-
 import { HttpClient } from '@angular/common/http'
 import { Observable } from 'rxjs'
 
@@ -9,7 +8,7 @@ import { SwapiResource, IBaseUrl, SwapiResourseField, SwapiInitialResource } fro
   providedIn: 'root',
 })
 export class SwapiService {
-  private apiUrl: string = 'https://swapi.dev/api'
+  private apiUrl: string = 'https://swapi.tech/api'
   favourites: any[] = []
 
   constructor(private _http: HttpClient) { }

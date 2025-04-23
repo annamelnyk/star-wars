@@ -25,7 +25,7 @@ export class MainItemsListBlockComponent implements OnInit {
   isLoading = false
   pagesAmount = 0
   searchQuery = ''
-  private _pagesAmount$ = new BehaviorSubject<number>(this.pagesAmount)
+  private _pagesAmount$ = new BehaviorSubject<number>(0)
   pagesAmount$ = this._pagesAmount$.asObservable()
   private _activePage$ = new BehaviorSubject<number>(1)
   activePage$ = this._activePage$.asObservable()
@@ -48,11 +48,11 @@ export class MainItemsListBlockComponent implements OnInit {
           .getData(this.collectionName, value)
           .pipe(takeUntilDestroyed(this.destroyRef2))
           .subscribe((data: any) => {
+            console.log(data)
             this.itemsList[Tab.All] = data.results
             this.checkFavouriteItems()
             this.collectionToRender = this.itemsList[Tab.All]
-            this.pagesAmount = data.count
-            this._pagesAmount$.next(data.count)
+            this._pagesAmount$.next(data.total_records)
             this.isLoading = false
           })
       })

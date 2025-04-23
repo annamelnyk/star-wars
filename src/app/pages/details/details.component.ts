@@ -52,7 +52,7 @@ export class DetailsComponent implements OnInit {
       .pipe(takeUntilDestroyed(this.destroyRef))
       .subscribe({
         next: (data: any) => {
-          this.formatItem(data)
+          this.formatItem(data.result.properties)
           this.title = this.getTitle()
           this.isItemFavourite = this.swapiService.checkIsItemFavourite(data)
           this.isLoading = false
